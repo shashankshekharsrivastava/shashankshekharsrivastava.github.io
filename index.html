@@ -31,7 +31,7 @@ function calc() {
   var R = document.getElementById("rate").value/1200;
   var N = Number(document.getElementById("duration").value*12);
   var EMI = P * R / (1 - (Math.pow(1/(1 + R), N)));
-  document.getElementById("myModalLabel").innerHTML = "The EMI is : - " + EMI + " Rupees.";
+  document.getElementById("myModalLabel").innerHTML = "The EMI is : - " + Math.round(EMI) + " Rupees.";
 }
 </script>
 
