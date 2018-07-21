@@ -10,7 +10,7 @@
 
   gtag('config', 'UA-122679296-1');
 </script>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EMI Calculator by Shashank Srivastava</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
@@ -20,17 +20,40 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="numberToWords.min.js"></script>
+
 </head>
 
 <script type="text/javascript">
 function calc() {
   var P = Number(document.getElementById("principal").value);
   var R = document.getElementById("rate").value/1200;
-  var N = Number(document.getElementById("duration").value);
+  var N = Number(document.getElementById("duration").value*12);
   var EMI = P * R / (1 - (Math.pow(1/(1 + R), N)));
   document.getElementById("myModalLabel").innerHTML = "The EMI is : - " + EMI + " Rupees.";
 }
 </script>
+
+<script type="text/javascript">
+function toWords() {
+var P = Number(document.getElementById("principal").value);
+var N = Number(document.getElementById("duration").value*12);
+var principalAmount = numberToWords.toWords(P);
+var months = numberToWords.toWords(N);
+document.getElementById("principalAmountInput").innerHTML = "The total loan amount chosen is... " + principalAmount;
+document.getElementById("durationInMonths").innerHTML = "The duration in months is... " + months;
+}
+</script>
+
+<script type="text/javascript">
+function toMonths() {
+var N = Number(document.getElementById("duration").value*12);
+var months = numberToWords.toWords(N);
+document.getElementById("durationInMonths").innerHTML = "The duration in months is... " + months;
+}
+</script>
+
 <body>
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
     <h5 class="my-0 mr-md-auto font-weight-normal">EMI Calculator</h5>
@@ -53,25 +76,25 @@ function calc() {
         <h3 class="display-5">Principal Amount</h3>
         <div class="input-group-prepend">
           <div class="input-group-text">$</div>
-          <input type="number" class="form-control" id="principal" aria-describedby="principal" placeholder="Enter the Principal.">
+          <input type="number" class="form-control" id="principal" aria-describedby="principal" placeholder="Enter the Principal" onkeyup="toWords()">
         </div>
-        <small class="form-text text-muted">Make sure you enter the total loan amount.</small>
+        <small id="principalAmountInput" class="form-text text-dark"></small>
       </div>
       <div class="form-group w-25">
         <h3 class="display-5">Interest Rate</h3>
         <div class="input-group-prepend">
           <div class="input-group-text">%</div>
-          <input type="number" class="form-control" id="rate" aria-describedby="rate" placeholder="Enter the Interest Rate.">
+          <input type="number" class="form-control" id="rate" aria-describedby="rate" placeholder="Enter the Interest Rate">
         </div>
-        <small class="form-text text-muted">Make sure you enter the actual interest rate. It will be automatically adjusted.</small>
+        <small class="form-text text-secondary">Make sure you enter the actual interest rate. It will be automatically adjusted.</small>
       </div>
       <div class="form-group w-25">
         <h3 class="display-5">Duration</h3>
         <div class="input-group-prepend">
           <div class="input-group-text">#</div>
-          <input type="number" class="form-control" id="duration" aria-describedby="duration" placeholder="Enter the Loan Duration.">
+          <input type="number" class="form-control" id="duration" aria-describedby="duration" placeholder="Enter the Loan Duration(in years!)" onkeyup="toMonths()">
         </div>
-        <small class="form-text text-muted">Enter the duration in months.</small>
+        <small id="durationInMonths" class="form-text text-info"></small>
       </div>
       <button type="button" class="btn btn-lg btn-danger" onclick="calc()" data-toggle="modal" data-target="#exampleModal">Calculate</button>
       <!-- Modal -->
