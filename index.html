@@ -1,27 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:fb="http://ogp.me/ns/fb#" lang="en">
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122679296-1"></script>
-<script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122679296-1"></script>
+  <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-122679296-1');
 </script>
-
-  <title>EMI Calculator by Shashank Srivastava</title>
+<meta charset="utf-8">
+<title>EMI Calculator by Shashank Srivastava</title>
 <meta name="description" content="A web-app to calculate loan EMI, written purely in HTML & JavaScript.">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-  <link href="https://getbootstrap.com/docs/4.1/examples/pricing/pricing.css" rel="stylesheet">
-  <link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<link href="https://getbootstrap.com/docs/4.1/examples/pricing/pricing.css" rel="stylesheet">
+<link rel="shortcut icon" href="favicon.ico" />
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 
-  <script type="text/javascript" src="numberToWords.min.js"></script>
+<script type="text/javascript" src="numberToWords.min.js"></script>
 
 </head>
 
@@ -37,20 +38,20 @@ function calc() {
 
 <script type="text/javascript">
 function toWords() {
-var P = Number(document.getElementById("principal").value);
-var N = Number(document.getElementById("duration").value*12);
-var principalAmount = numberToWords.toWords(P);
-var months = numberToWords.toWords(N);
-document.getElementById("principalAmountInput").innerHTML = "The total loan amount chosen is... " + principalAmount;
-document.getElementById("durationInMonths").innerHTML = "The duration in months is... " + months;
+  var P = Number(document.getElementById("principal").value);
+  var N = Number(document.getElementById("duration").value*12);
+  var principalAmount = numberToWords.toWords(P);
+  var months = numberToWords.toWords(N);
+  document.getElementById("principalAmountInput").innerHTML = "The total loan amount chosen is... " + principalAmount;
+  document.getElementById("durationInMonths").innerHTML = "The duration in months is... " + months;
 }
 </script>
 
 <script type="text/javascript">
 function toMonths() {
-var N = Number(document.getElementById("duration").value*12);
-var months = numberToWords.toWords(N);
-document.getElementById("durationInMonths").innerHTML = "The duration in months is... " + months;
+  var N = Number(document.getElementById("duration").value*12);
+  var months = numberToWords.toWords(N);
+  document.getElementById("durationInMonths").innerHTML = "The duration in months is... " + months;
 }
 </script>
 
