@@ -24,6 +24,8 @@ xmlns:fb="http://ogp.me/ns/fb#" lang="en">
 
 <script type="text/javascript" src="numberToWords.min.js"></script>
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 </head>
 
 <script type="text/javascript">
@@ -32,7 +34,7 @@ function calc() {
   var R = document.getElementById("rate").value/1200;
   var N = Number(document.getElementById("duration").value*12);
   var EMI = P * R / (1 - (Math.pow(1/(1 + R), N)));
-  document.getElementById("myModalLabel").innerHTML = "The EMI is : - " + Math.round(EMI) + " Rupees.";
+  document.getElementById("myModalLabel").innerHTML = "The EMI is : - " + EMI.toFixed(2) + " Rupees.";
 }
 </script>
 
@@ -55,6 +57,56 @@ function toMonths() {
 }
 </script>
 
+<script type="text/javascript">
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(calcBreakUp);
+function calcBreakUp() {
+  var P = Number(document.getElementById("principal").value);
+  var R = document.getElementById("rate").value/1200;
+  var N = Number(document.getElementById("duration").value*12);
+  var EMI = P * R / (1 - (Math.pow(1/(1 + R), N)));
+  var totalAmount = (EMI * N);
+  console.log(totalAmount)
+  var totalInterest = (totalAmount - P);
+  console.log(totalInterest)
+  document.getElementById("totalAmountModalLabel").innerHTML = "Total amount you will pay against " + "the principal amount of Rupees " + P + " is... " + totalAmount.toFixed(2) + " Rupees";
+  document.getElementById("totalInterestModalLabel").innerHTML = "Out of which the total interest you will end up with is... " + totalInterest.toFixed(2) + " Rupees";
+  var data = google.visualization.arrayToDataTable([
+    ['Task', 'Hours per Day'],
+    ['Total Amount', totalAmount],
+    ['Total Interest',     totalInterest]
+]);
+var options = {
+  height: '400',
+  legend: 'Amount',
+  width: '700',
+  is3D: true,
+  animation: {"startup": true},
+  animation:{
+        duration: 1000,
+        easing: 'out',
+      },
+};
+
+var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+
+if (navigator.userAgent.match(/Trident\/7\./)) {
+  google.visualization.events.addListener(chart, 'click', function() {
+    chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
+    console.log(chart_div.innerHTML);
+  });
+  chart.draw(data, options);
+} else {
+  google.visualization.events.addListener(chart, 'select png', function() {
+    chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
+    console.log(chart_div.innerHTML);
+  });
+  chart.draw(data, options);
+  document.getElementById('png').innerHTML = '<a href="' + chart.getImageURI() + '" target="_blank"><span class="glyphicon glyphicon-print"></span></a>';
+}
+}
+</script>
+
 <body>
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
     <h5 class="my-0 mr-md-auto font-weight-bold">EMI Calculator</h5>
@@ -73,6 +125,7 @@ function toMonths() {
             <div class="modal-body">
               <li>Loads really fast.</li>
               <li>Know the amount you are entering in real time.</li>
+              <li>See the breakup of principal & interest amount.</li>
               <li>Single page app. Written in pure HTML & JavaScript.</li>
               <li>Extremely lightweight.</li>
               <li>Simple, yet useful.</li>
@@ -144,6 +197,7 @@ function toMonths() {
         <small id="durationInMonths" class="form-text text-info"></small>
       </div>
       <button type="button" class="btn btn-lg btn-danger" onclick="calc()" data-toggle="modal" data-target="#exampleModal">Calculate</button>
+      <button type="button" class="btn btn-lg btn-success" onclick="calcBreakUp()" data-toggle="modal" data-target="#totalModal">Breakup</button>
       <!-- Modal -->
       <div class="modal fade bd-example-modal-sm" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
@@ -156,6 +210,29 @@ function toMonths() {
             </div>
             <div class="modal-body">
               <h3 id="myModalLabel"></h3>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade bd-example-modal-lg" id="totalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Loan Breakup</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h3 class="text-info"><u>Below is the brief summary of your loan.</u></h3>
+              <h4 class="text-success" id="totalAmountModalLabel"></h4>
+              <h4 class="text-danger" id="totalInterestModalLabel"></h4>
+              <div class="chart" id="chart_div">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
