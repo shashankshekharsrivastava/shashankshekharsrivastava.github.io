@@ -12,6 +12,7 @@ xmlns:fb="http://ogp.me/ns/fb#" lang="en">
   gtag('config', 'UA-122679296-1');
 </script>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <title>EMI Calculator by Shashank Srivastava</title>
 <meta name="description" content="A web-app to calculate loan EMI, written purely in HTML & JavaScript.">
@@ -179,7 +180,7 @@ if (navigator.userAgent.match(/Trident\/7\./)) {
   </div>
   <center>
     <form>
-      <div class="form-group w-25">
+      <div class="form-group w-50">
         <h3 class="display-5">Principal Amount</h3>
         <div class="input-group-prepend">
           <div class="input-group-text">$</div>
@@ -187,7 +188,7 @@ if (navigator.userAgent.match(/Trident\/7\./)) {
         </div>
         <small id="principalAmountInput" class="form-text text-primary"></small>
       </div>
-      <div class="form-group w-25">
+      <div class="form-group w-50">
         <h3 class="display-5">Interest Rate</h3>
         <div class="input-group-prepend">
           <div class="input-group-text">%</div>
@@ -199,7 +200,7 @@ if (navigator.userAgent.match(/Trident\/7\./)) {
         <h3 class="display-5">Duration</h3>
         <div class="input-group-prepend">
           <div class="input-group-text">#</div>
-          <input type="number" class="form-control" id="duration" aria-describedby="duration" placeholder="Loan Duration(in years!)" onkeyup="toMonths()">
+          <input type="number" class="form-control" id="duration" aria-describedby="duration" placeholder="(in years)" onkeyup="toMonths()">
         </div>
         <small id="durationInMonths" class="form-text text-info"></small>
       </div>
