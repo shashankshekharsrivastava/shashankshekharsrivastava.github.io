@@ -180,7 +180,7 @@ if (navigator.userAgent.match(/Trident\/7\./)) {
   </div>
   <center>
     <form>
-      <div class="form-group w-50">
+      <div class="form-group w-75">
         <h3 class="display-5">Principal Amount</h3>
         <div class="input-group-prepend">
           <div class="input-group-text">$</div>
@@ -188,7 +188,7 @@ if (navigator.userAgent.match(/Trident\/7\./)) {
         </div>
         <small id="principalAmountInput" class="form-text text-primary"></small>
       </div>
-      <div class="form-group w-50">
+      <div class="form-group w-75">
         <h3 class="display-5">Interest Rate</h3>
         <div class="input-group-prepend">
           <div class="input-group-text">%</div>
@@ -196,11 +196,11 @@ if (navigator.userAgent.match(/Trident\/7\./)) {
         </div>
         <small class="form-text text-secondary">Make sure you enter the actual interest rate. It will be automatically adjusted.</small>
       </div>
-      <div class="form-group w-25">
+      <div class="form-group w-50">
         <h3 class="display-5">Duration</h3>
         <div class="input-group-prepend">
           <div class="input-group-text">#</div>
-          <input type="number" class="form-control" id="duration" aria-describedby="duration" placeholder="(in years)" onkeyup="toMonths()">
+          <input type="number" class="form-control" id="duration" aria-describedby="duration" placeholder="Duration in years" onkeyup="toMonths()">
         </div>
         <small id="durationInMonths" class="form-text text-info"></small>
       </div>
