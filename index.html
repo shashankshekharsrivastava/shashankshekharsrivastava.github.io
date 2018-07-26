@@ -28,10 +28,10 @@ xmlns:fb="http://ogp.me/ns/fb#" lang="en">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
-     (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-0479862154014237",
-          enable_page_level_ads: true
-     });
+(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: "ca-pub-0479862154014237",
+  enable_page_level_ads: true
+});
 </script>
 
 </head>
@@ -83,35 +83,29 @@ function calcBreakUp() {
     ['Task', 'Hours per Day'],
     ['Total Amount', totalAmount],
     ['Total Interest',     totalInterest]
-]);
-var options = {
-  height: '400',
-  legend: 'Amount',
-  width: '700',
-  is3D: true,
-  animation: {"startup": true},
-  animation:{
-        duration: 1000,
-        easing: 'out',
-      },
-};
+  ]);
+  var options = {
+    legend: 'Amount',
+    is3D: true,
+    animation: {"startup": true},
+  };
 
-var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+  var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
 
-if (navigator.userAgent.match(/Trident\/7\./)) {
-  google.visualization.events.addListener(chart, 'click', function() {
-    chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
-    console.log(chart_div.innerHTML);
-  });
-  chart.draw(data, options);
-} else {
-  google.visualization.events.addListener(chart, 'select png', function() {
-    chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
-    console.log(chart_div.innerHTML);
-  });
-  chart.draw(data, options);
-  document.getElementById('png').innerHTML = '<a href="' + chart.getImageURI() + '" target="_blank"><span class="glyphicon glyphicon-print"></span></a>';
-}
+  if (navigator.userAgent.match(/Trident\/7\./)) {
+    google.visualization.events.addListener(chart, 'click', function() {
+      chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
+      console.log(chart_div.innerHTML);
+    });
+    chart.draw(data, options);
+  } else {
+    google.visualization.events.addListener(chart, 'select png', function() {
+      chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
+      console.log(chart_div.innerHTML);
+    });
+    chart.draw(data, options);
+    document.getElementById('png').innerHTML = '<a href="' + chart.getImageURI() + '" target="_blank"><span class="glyphicon glyphicon-print"></span></a>';
+  }
 }
 </script>
 
@@ -241,14 +235,14 @@ if (navigator.userAgent.match(/Trident\/7\./)) {
               <h4 class="text-success" id="totalAmountModalLabel"></h4>
               <h4 class="text-danger" id="totalInterestModalLabel"></h4>
               <div class="chart" id="chart_div">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </form>
-  </center>
-</body>
-</html>
+      </form>
+    </center>
+  </body>
+  </html>
