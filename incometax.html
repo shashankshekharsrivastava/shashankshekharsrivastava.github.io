@@ -27,6 +27,8 @@ xmlns:fb="http://ogp.me/ns/fb#" lang="en">
 
 <script type="text/javascript" src="numberToWords.min.js"></script>
 <script type="text/javascript" src="dist/js/social-share-kit.js"></script>
+<script src="jspdf.debug.js"</script>
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -39,7 +41,58 @@ enable_page_level_ads: true
 </head>
 
 <script type="text/javascript" src="calcIncomeTax.js"></script>
+<script type="text/javascript">
+function toPDF() {
+  var doc = new jsPDF();
+  var gross = document.getElementById("grossIncomeFinal").innerHTML
+  var net = document.getElementById("netIncomeFinal").innerHTML
+  var deducts = document.getElementById("totalDeductions").innerHTML
+  var inctax = document.getElementById("incometax").innerHTML
+  var actax = document.getElementById("actualTax").innerHTML
+  var cess = document.getElementById("cess").innerHTML
+  var totax = document.getElementById("totalTax").innerHTML
+  var slab = document.getElementById("slab").innerHTML
 
+  doc.setFontSize(20);
+  doc.text(20, 20, 'EMI & Income Tax Calculator by Shashank Srivastava.');
+
+  doc.setFont("courier");
+  doc.setFontType("normal");
+  doc.text(20, 30, 'This is the transcript.');
+
+  doc.setFont("helvetica");
+  doc.setFontType("normal");
+  doc.text(20, 50, gross);
+
+  doc.setFont("helvetica");
+  doc.setFontType("normal");
+  doc.text(20, 60, net);
+
+  doc.setFont("courier");
+  doc.setFontType("bolditalic");
+  doc.text(20, 70, deducts);
+
+  doc.setFont("helvetica");
+  doc.setFontType("bold");
+  doc.text(20, 80, slab);
+  doc.text(20, 90, inctax);
+  doc.text(20, 100, actax);
+
+  doc.setFont("courier");
+  doc.setFontType("italic");
+  doc.text(20, 110, cess);
+
+  doc.setFont("helvetica")
+  doc.setFontType("bold");
+  doc.setFontSize(20);
+  doc.text(20, 120, totax);
+
+  doc.setFont("helvetica")
+  doc.setFontType("italic");
+  doc.text(20, 180, '"Help the needy, feed the hungry."');
+  doc.save('EMI & Income Tax Calculator.pdf');
+}
+</script>
 <body>
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
     <h5 class="my-0 mr-md-auto font-weight-bold">EMI & Income Tax Calculator</h5>
@@ -61,6 +114,7 @@ enable_page_level_ads: true
               <li>No data collected or stored. 100% safe, secure & private.</li>
                 <li>All the calculations are done on your browser. There is no backend server.</li>
               <li>HTTPS site. No one can see the data you enter. Not even you, if you click back.</li>
+              <li>Download your data as PDF.</li>
               <li>Loads really fast.</li>
               <li>Know the amount you are entering in real time (for EMI Calculator).</li>
               <li>See the breakup of principal & interest amount.</li>
@@ -250,6 +304,7 @@ enable_page_level_ads: true
         <h3 class="card-text text-dark" id="grossIncomeFinal"></h3>
         <h3 class="card-text text-warning" id="netIncomeFinal"></h3>
         <h3 class="card-text text-success" id="totalDeductions"></h3>
+        <h3 class="card-text text-danger" id="slab"></h3>
         <h3 class="card-text text-secondary" id="incometax"></h3>
         <h3 class="card-text text-danger" id="actualTax"></h3>
         <h3 class="card-text text-primary" id="cess"></h3>
