@@ -37,13 +37,16 @@ function calc() {
     document.getElementById("totalTax").innerHTML = "Your taxable income is less than 2,50,000 Rupees. No tax payable!";
     return false;
   } else if (taxableIncome >= 250000 && taxableIncome <= 500000) {
+    var slab = 5;
     var netTaxpayable = ( taxableIncome - 250000);
     var AT = (( 5 * netTaxpayable ) / 100);
   } else if (taxableIncome >= 500000 && taxableIncome <= 1000000) {
+    var slab = 20;
     var netTaxpayable = (taxableIncome - 500000);
     var AT = (20 * netTaxpayable)/ 100 + 12500;
   }
   else if (taxableIncome > 1000000){
+    slab = 30;
     netTaxpayable = ( taxableIncome - 500000);
     AT = (( 30 * taxableIncome ) / 100 ) + 100000 + 12500;
   }
@@ -56,6 +59,7 @@ function calc() {
   document.getElementById("netIncomeFinal").innerHTML = "Net Income : "+ NI;
   document.getElementById("totalDeductions").innerHTML = "Total Deductions : "+ DEDUCTIONS;
   document.getElementById("incometax").innerHTML = "Taxable Income : "+ taxableIncome;
+  document.getElementById("slab").innerHTML = "Income Tax Slab(%) : "+ slab;
 }
 
 function netIncomeFn() {
