@@ -14,106 +14,34 @@ xmlns:fb="http://ogp.me/ns/fb#" lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<title>EMI Calculator by Shashank Srivastava</title>
-<meta name="description" content="An extremely light-weight, fast web-app with a clean interface to calculate loan EMI, written purely in HTML & JavaScript.">
+<title>EMI & Income Tax Calculator by Shashank Srivastava</title>
+<meta name="description" content="An extremely light-weight, fast web-app with a clean interface to calculate loan EMI & Income Tax, written purely in HTML & JavaScript. No log-in required. No data saved.">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 <link href="https://getbootstrap.com/docs/4.1/examples/pricing/pricing.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link rel="stylesheet" href="dist/css/social-share-kit.css" type="text/css">
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="numberToWords.min.js"></script>
-
+<script type="text/javascript" src="dist/js/social-share-kit.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({
-  google_ad_client: "ca-pub-0479862154014237",
-  enable_page_level_ads: true
+google_ad_client: "ca-pub-0479862154014237",
+enable_page_level_ads: true
 });
 </script>
 
 </head>
 
-<script type="text/javascript">
-function calc() {
-  var P = Number(document.getElementById("principal").value);
-  var R = document.getElementById("rate").value/1200;
-  var N = Number(document.getElementById("duration").value*12);
-  var EMI = P * R / (1 - (Math.pow(1/(1 + R), N)));
-  var EMIinWords = numberToWords.toWords(EMI);
-  document.getElementById("myModalLabel").innerHTML = "The EMI is : - " + EMI.toFixed(2) + " Rupees.";
-  document.getElementById("myModalLabelinWords").innerHTML = "In other words, yout EMI is : - " + EMIinWords + " Rupees(rounded off).";
-}
-</script>
-
-<script type="text/javascript">
-function toWords() {
-  var P = Number(document.getElementById("principal").value);
-  var N = Number(document.getElementById("duration").value*12);
-  var principalAmount = numberToWords.toWords(P);
-  var months = numberToWords.toWords(N);
-  document.getElementById("principalAmountInput").innerHTML = "The total loan amount chosen is... " + principalAmount;
-  document.getElementById("durationInMonths").innerHTML = "The duration in months is... " + months;
-}
-</script>
-
-<script type="text/javascript">
-function toMonths() {
-  var N = Number(document.getElementById("duration").value*12);
-  var months = numberToWords.toWords(N);
-  document.getElementById("durationInMonths").innerHTML = "The duration in months is... " + months;
-}
-</script>
-
-<script type="text/javascript">
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(calcBreakUp);
-function calcBreakUp() {
-  var P = Number(document.getElementById("principal").value);
-  var R = document.getElementById("rate").value/1200;
-  var N = Number(document.getElementById("duration").value*12);
-  var EMI = P * R / (1 - (Math.pow(1/(1 + R), N)));
-  var totalAmount = (EMI * N);
-  var totalInterest = (totalAmount - P);
-  document.getElementById("totalAmountModalLabel").innerHTML = "Total amount you will pay against " + "the principal amount of Rupees " + P + " is... " + totalAmount.toFixed(2) + " Rupees";
-  document.getElementById("totalInterestModalLabel").innerHTML = "Out of which the total interest you will end up with is... " + totalInterest.toFixed(2) + " Rupees";
-  var data = google.visualization.arrayToDataTable([
-    ['Task', 'Hours per Day'],
-    ['Total Amount', totalAmount],
-    ['Total Interest',     totalInterest]
-  ]);
-  var options = {
-    title: 'EMI Breakup Chart',
-    width: 325,
-    legend: 'Amount',
-    is3D: true,
-    animation: {"startup": true},
-  };
-
-  var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-
-  if (navigator.userAgent.match(/Trident\/7\./)) {
-    google.visualization.events.addListener(chart, 'click', function() {
-      chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
-      console.log(chart_div.innerHTML);
-    });
-    chart.draw(data, options);
-  } else {
-    google.visualization.events.addListener(chart, 'select png', function() {
-      chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
-      console.log(chart_div.innerHTML);
-    });
-    chart.draw(data, options);
-    document.getElementById('png').innerHTML = '<a href="' + chart.getImageURI() + '" target="_blank"><span class="glyphicon glyphicon-print"></span></a>';
-  }
-}
-</script>
-
+<script type="text/javascript" src="calcEMI.js"></script>
 <body>
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-    <h5 class="my-0 mr-md-auto font-weight-bold">EMI Calculator</h5>
+    <h5 class="my-0 mr-md-auto font-weight-bold">EMI & Income Tax Calculator</h5>
     <nav class="my-2 my-md-0 mr-md-3">
       <button class="btn btn-outline-success" type="button" data-toggle="modal" data-target="#featuresModal">Features</button>
       <!-- Modal -->
@@ -127,8 +55,13 @@ function calcBreakUp() {
               </button>
             </div>
             <div class="modal-body">
+              <li>EMI & Income Tax Calculator.</li>
+              <li>No sign-in/sign-up required.</li>
+              <li>No data collected or stored. 100% safe, secure & private.</li>
+              <li>All the calculations are done on your browser. There is no backend server.</li>
+              <li>HTTPS site. No one can see the data you enter. Not even you, if you click back.</li>
               <li>Loads really fast.</li>
-              <li>Know the amount you are entering in real time.</li>
+              <li>Know the amount you are entering in real time (for EMI Calculator).</li>
               <li>See the breakup of principal & interest amount.</li>
               <li>Single page app. Written in pure HTML & JavaScript.</li>
               <li>Extremely lightweight.</li>
@@ -157,7 +90,7 @@ function calcBreakUp() {
               <li><a href="https://shashankstraveldiary.blogspot.com//">Travel Experience.</a></li>
               <li><a href="https://watilearnd2day.wordpress.com/">Linux/DevOps/Automation How To.</a></li>
               <li><a href="https://thepagesbetweenfingers.blogspot.com/">Books Suggestions & Reviews.</a></li>
-              <li><a href="https://skinny2healthy.blogspot.in//">Health & Fitness.</a></li>
+              <li><a href="https://skinny2healthy.blogspot.in/">Health & Fitness.</a></li>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -165,81 +98,58 @@ function calcBreakUp() {
           </div>
         </div>
       </div>
-      <a class="btn btn-outline-secondary" href="mailto:shashank.ssriv@gmail.com">Contact Me</a>
+      <a class="btn btn-outline-secondary" href="incometax.html">Income Tax Calculator</a>
     </nav>
-    <a class="btn btn-outline-primary" href="http://shashankshekharsrivastava.github.io/">Home</a>
+    <a class="btn btn-outline-primary" href="https://shashankshekharsrivastava.github.io/">Home</a>
   </div>
 
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h1 class="display-4">EMI Calculator</h1>
     <p class="lead">Enter the Principal, Rate & Duration of the loan.</p>
+    <hr>
   </div>
   <center>
     <form>
-       <div class="container">
-      <div class="form-group w-75">
-        <h3 class="display-5">Principal Amount</h3>
-        <div class="input-group-prepend">
-          <div class="input-group-text">$</div>
-          <input type="number" class="form-control" id="principal" aria-describedby="principal" placeholder="Enter the Principal" onkeyup="toWords()">
-        </div>
-        <small id="principalAmountInput" class="form-text text-primary"></small>
-      </div>
-      <div class="form-group w-75">
-        <h3 class="display-5">Interest Rate</h3>
-        <div class="input-group-prepend">
-          <div class="input-group-text">%</div>
-          <input type="number" class="form-control" id="rate" aria-describedby="rate" placeholder="Enter the Interest Rate">
-        </div>
-        <small class="form-text text-secondary">Make sure you enter the actual interest rate. It will be automatically adjusted.</small>
-      </div>
-      <div class="form-group w-50">
-        <h3 class="display-5">Duration</h3>
-        <div class="input-group-prepend">
-          <div class="input-group-text">#</div>
-          <input type="number" class="form-control" id="duration" aria-describedby="duration" placeholder="Duration in years" onkeyup="toMonths()">
-        </div>
-        <small id="durationInMonths" class="form-text text-info"></small>
-      </div>
-      <button type="button" class="btn btn-lg btn-danger" onclick="calc()" data-toggle="modal" data-target="#exampleModal">Calculate</button>
-      <button type="button" class="btn btn-lg btn-success" onclick="calcBreakUp()" data-toggle="modal" data-target="#totalModal">Breakup</button>
-
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">EMI Calculator</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <h3 id="myModalLabel"></h3>
-              <h4 id="myModalLabelinWords" class="text-primary"></h4>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+      <div class="container">
+        <div class="form-group w-75">
+          <h3 class="display-5">Principal Amount</h3>
+          <div class="input-group-prepend">
+            <div class="input-group-text">$</div>
+            <input type="number" class="form-control" id="principal" aria-describedby="principal" placeholder="Enter the Principal" onkeyup="toWords()">
           </div>
+          <small id="principalAmountInput" class="form-text text-primary"></small>
         </div>
-      </div>
-
-      <!-- Modal -->
-      <div class="modal fade bd-example-modal-lg" id="totalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Loan Breakup</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <h3 class="text-info"><u>Below is the brief summary of your loan.</u></h3>
-              <h4 class="text-success" id="totalAmountModalLabel"></h4>
-              <h4 class="text-danger" id="totalInterestModalLabel"></h4>
-              <div class="chart" id="chart_div">
+        <div class="form-group w-75">
+          <h3 class="display-5">Interest Rate</h3>
+          <div class="input-group-prepend">
+            <div class="input-group-text">%</div>
+            <input type="number" class="form-control" id="rate" aria-describedby="rate" placeholder="Enter the Annual Interest Rate">
+          </div>
+          <small class="form-text text-secondary">Make sure you enter the actual annual interest rate. It will be automatically adjusted.</small>
+        </div>
+        <div class="form-group w-50">
+          <h3 class="display-5">Duration</h3>
+          <div class="input-group-prepend">
+            <div class="input-group-text">#</div>
+            <input type="number" class="form-control" id="duration" aria-describedby="duration" placeholder="Duration in years" onkeyup="toMonths()">
+          </div>
+          <small id="durationInMonths" class="form-text text-info"></small>
+        </div>
+        <button type="button" class="btn btn-lg btn-danger" id="calculatEMIBtn" onclick="calc()" data-toggle="modal" data-target="#exampleModal">Calculate</button>
+        <button type="button" class="btn btn-lg btn-success" id="calculatBreakupBtn" onclick="calcBreakUp()" data-toggle="modal" data-target="#totalModal">Breakup</button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">EMI Calculator</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <h3 id="myModalLabel"></h3>
+                <h4 id="myModalLabelinWords" class="text-primary"></h4>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -247,8 +157,44 @@ function calcBreakUp() {
             </div>
           </div>
         </div>
-      </div>
+
+        <!-- Modal -->
+        <div class="modal fade bd-example-modal-lg" id="totalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Loan Breakup</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <h3 class="text-info"><u>Below is the brief summary of your loan.</u></h3>
+                <h5 class="text-success" id="totalAmountModalLabel"></h5>
+                <h5 class="text-danger" id="totalInterestModalLabel"></h5>
+                <div class="chart" id="chart_div">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
+      <hr>
+      <p class="text-monospace">Support this site. Please share with your friends.</p>
+      <div class="ssk-group ssk-count">
+        <a href="" class="ssk ssk-facebook ssk-lg" data-url="https://shashankshekharsrivastava.github.io/" data-text="EMI & Income Tax Calculator by Shashank Srivastava. No log-in required."></a>
+        <a href="" class="ssk ssk-twitter ssk-lg" data-via="shashanksriva"></a>
+        <a href="" class="ssk ssk-google-plus ssk-lg" data-url="https://shashankshekharsrivastava.github.io/"></a>
+        <a href="" class="ssk ssk-linkedin ssk-lg" data-url="https://shashankshekharsrivastava.github.io/" data-text="EMI & Income Tax Calculator by Shashank Srivastava. No log-in required."></a>
+      </div>
     </center>
+    <script type="text/javascript">
+    SocialShareKit.init();
+    </script>
   </body>
   </html>

@@ -1,0 +1,275 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:fb="http://ogp.me/ns/fb#" lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122679296-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-122679296-1');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>EMI & Income Tax Calculator by Shashank Srivastava</title>
+<meta name="description" content="An extremely light-weight, fast web-app with a clean interface to calculate loan EMI & Income Tax, written purely in HTML & JavaScript. No log-in required. No data saved.">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<link href="https://getbootstrap.com/docs/4.1/examples/pricing/pricing.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link rel="stylesheet" href="dist/css/social-share-kit.css" type="text/css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="numberToWords.min.js"></script>
+<script type="text/javascript" src="dist/js/social-share-kit.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({
+google_ad_client: "ca-pub-0479862154014237",
+enable_page_level_ads: true
+});
+</script>
+
+</head>
+
+<script type="text/javascript" src="calcIncomeTax.js"></script>
+
+<body>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-bold">EMI & Income Tax Calculator</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <button class="btn btn-outline-success" type="button" data-toggle="modal" data-target="#featuresModal">Features</button>
+      <!-- Modal -->
+      <div class="modal fade" id="featuresModal" tabindex="-1" role="dialog" aria-labelledby="featuresModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="featuresModalLabel">Features</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <li>EMI & Income Tax Calculator.</li>
+              <li>No sign-in/sign-up required.</li>
+              <li>No data collected or stored. 100% safe, secure & private.</li>
+                <li>All the calculations are done on your browser. There is no backend server.</li>
+              <li>HTTPS site. No one can see the data you enter. Not even you, if you click back.</li>
+              <li>Loads really fast.</li>
+              <li>Know the amount you are entering in real time (for EMI Calculator).</li>
+              <li>See the breakup of principal & interest amount.</li>
+              <li>Single page app. Written in pure HTML & JavaScript.</li>
+              <li>Extremely lightweight.</li>
+              <li>Simple, yet useful.</li>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="btn btn-outline-info" href="https://www.facebook.com/shazmix">About</a>
+      <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#blogsModal">Blogs</button>
+      <!-- Modal -->
+      <div class="modal fade" id="blogsModal" tabindex="-1" role="dialog" aria-labelledby="blogsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="featuresModalLabel">Blogs by me</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <li><a href="https://mymusicrevu.blogspot.com/">Music Sharing & Reviews.</a></li>
+              <li><a href="https://shashankstraveldiary.blogspot.com//">Travel Experience.</a></li>
+              <li><a href="https://watilearnd2day.wordpress.com/">Linux/DevOps/Automation How To.</a></li>
+              <li><a href="https://thepagesbetweenfingers.blogspot.com/">Books Suggestions & Reviews.</a></li>
+              <li><a href="https://skinny2healthy.blogspot.in//">Health & Fitness.</a></li>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="btn btn-outline-secondary" href="incometax.html">Income Tax Calculator</a>
+    </nav>
+    <a class="btn btn-outline-primary" href="https://shashankshekharsrivastava.github.io/">Home</a>
+  </div>
+
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Income Tax Calculator</h1>
+    <hr>
+    <p class="lead text-danger font-weight-bold shadow p-3 mb-5 bg-white rounded">Income Section</p>
+  </div>
+  <center>
+    <div class="container">
+      <form>
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <label for="totalIncome" class="font-weight-bold">Total Income</label>
+            <input type="number" class="form-control" id="totalIncome" placeholder="Gross Income" required>
+          </div>
+          <div class="col-auto">
+            <label for="additionalIncomeA" class="font-weight-bold">Additional Income A</label>
+            <input type="number" class="form-control" id="additionalIncomeA" placeholder="Income from Savings Account" required>
+          </div>
+          <div class="col-auto">
+            <label for="additionalIncomeB" class="font-weight-bold">Additional Income B</label>
+            <input type="number" class="form-control" id="additionalIncomeB" placeholder="Income from Mutual Funds/NSC">
+          </div>
+          <div class="col-auto">
+            <label for="additionalIncomeC" class="font-weight-bold">Additional Income C</label>
+            <input type="number" class="form-control" id="additionalIncomeC" placeholder="Any other source">
+          </div>
+        </div>
+        <br>
+        <div class="form-row align-items-center">
+          <div class="col-auto A border border-info">
+            <label for="grossIncome" class="font-weight-bold font-italic">Gross Income(Calculated Automatically)</label>
+            <h3 id="grossIncome"></h3>
+          </div>
+        </div>
+        <br>
+        <p class="lead text-success font-weight-bold shadow p-3 mb-5 bg-white rounded">Allowances Section</p>
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <label for="hra" class="font-weight-bold">HRA</label>
+            <input type="number" class="form-control" id="hra" placeholder="" onkeyup="netIncomeFn()" required>
+          </div>
+          <div class="col-auto">
+            <label for="conveyance" class="font-weight-bold">Conveyance Allowance</label>
+            <input type="number" class="form-control" id="conveyance" placeholder="" onkeyup="netIncomeFn()" >
+          </div>
+        </div>
+        <br>
+        <div class="form-row align-items-center">
+          <div class="col-auto border">
+            <label for="totalAllowance" class="font-weight-bold font-italic">Total Allowances(Calculated Automatically)</label>
+            <h3 id="totalAllowance"></h3>
+          </div>
+          <div class="col-auto border">
+            <label for="netIncome" class="font-weight-bold font-italic">Net Income(Calculated Automatically)</label>
+            <h3 id="netIncome"></h3>
+          </div>
+        </div>
+        <br>
+        <p class="lead text-primary font-weight-bold shadow p-3 mb-5 bg-white rounded">Section 80C (1,50,000 Rupees Maximum)</p>
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <label for="pf" class="font-weight-bold">Provident Fund</label>
+            <input type="number" class="form-control" id="pf" placeholder="PF" onkeyup="netIncomeFn()" required>
+          </div>
+          <div class="col-auto">
+            <label for="lic" class="font-weight-bold">Life Insurance</label>
+            <input type="number" class="form-control" id="lic" placeholder="All life insurance policies">
+          </div>
+          <div class="col-auto">
+            <label for="mf" class="font-weight-bold">Mutual Funds</label>
+            <input type="number" class="form-control" id="mf" placeholder="All mutual funds">
+          </div>
+          <div class="col-auto">
+            <label for="nsc" class="font-weight-bold">Interest from NSC</label>
+            <input type="number" class="form-control" id="nsc" placeholder="Lumpsum or in parts">
+          </div>
+          <div class="col-auto">
+            <label for="ppf" class="font-weight-bold">PPF</label>
+            <input type="number" class="form-control" id="ppf" placeholder="Public Provident Fund">
+          </div>
+          <div class="col-auto">
+            <label for="homeloanPrincipal" class="font-weight-bold">House Property(Principal Repayment)</label>
+            <input type="number" class="form-control" id="homeloanPrincipal" placeholder="Include any Registry amount as well">
+          </div>
+        </div>
+        <br>
+        <div class="form-row align-items-center">
+          <div class="col-auto A border">
+            <label for="total80c" class="font-weight-bold font-italic">Section 80C - Total(Calculated Automatically)</label>
+            <h3 id="total80c"></h3>
+          </div>
+        </div>
+        <br>
+        <p class="lead text-secondary font-weight-bold shadow p-3 mb-5 bg-white rounded">Section 80D (Medical Insurance)</p>
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <label for="medicalSelf" class="font-weight-bold">Premium For Self, Spouse or Dependent Children</label>
+            <input type="number" class="form-control" id="medicalSelf" placeholder="" onkeyup="netIncomeFn()" required>
+          </div>
+          <div class="col-auto">
+            <label for="medicalParents" class="font-weight-bold">Premium For Parents</label>
+            <input type="number" class="form-control" id="medicalParents" placeholder="" onkeydown="netIncomeFn()">
+          </div>
+        </div>
+        <br>
+        <div class="form-row align-items-center">
+          <div class="col-auto A border">
+            <label for="total80d" class="font-weight-bold font-italic">Section 80D - Total(Calculated Automatically)</label>
+            <h3 id="totalmed"></h3>
+          </div>
+        </div>
+        <br>
+        <p class="lead text-warning font-weight-bold shadow p-3 mb-5 bg-white rounded">Section 80E (Education Loan)</p>
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <label for="education" class="font-weight-bold">Interest Paid</label>
+            <input type="number" class="form-control" id="education" placeholder="">
+          </div>
+        </div>
+        <br>
+        <p class="lead text-dark font-weight-bold shadow p-3 mb-5 bg-white rounded">Section 80CCD (1) and (1B) - Employee Contribution to New Pension Scheme (NPS))</p>
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <label for="nps" class="font-weight-bold">NPS Investment</label>
+            <input type="number" class="form-control" id="nps" placeholder="">
+          </div>
+        </div>
+        <br>
+        <p class="lead text-danger font-weight-bold shadow p-3 mb-5 bg-white rounded">Loss From House Property</p>
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <label for="homeloanInterest" class="font-weight-bold">Interest Paid on Self-occupied Property</label>
+            <input type="number" class="form-control" id="homeloanInterest" placeholder="">
+          </div>
+        </div>
+        <br>
+        <button type="button" id="incometaxCalculateBtn" class="btn btn-danger" onclick="calc()">Calculate</button>
+      </form>
+    </div>
+    <br>
+    <div class="card border-dark mb-3 w-50">
+      <div class="card-header">Income Tax Calculator</div>
+      <div class="card-body">
+        <h5 class="card-title">Income Tax Computation</h5>
+        <h3 class="card-text" id="grossIncomeFinal"></h3>
+        <h3 class="card-text" id="netIncomeFinal"></h3>
+        <h3 class="card-text" id="totalDeductions"></h3>
+        <h3 class="card-text" id="incometax"></h3>
+        <h3 class="card-text" id="actualTax"></h3>
+        <h3 class="card-text" id="cess"></h3>
+        <h2 class="card-text" id="totalTax"></h2>
+        <br>
+        <a href="https://shashankshekharsrivastava.github.io/" class="btn btn-primary">Home</a>
+      </div>
+    </div>
+    <hr>
+<p class="text-monospace">Support this site. Please share with your friends.</p>
+    <div class="ssk-group ssk-count">
+      <a href="" class="ssk ssk-facebook ssk-lg" data-url="https://shashankshekharsrivastava.github.io/" data-text="EMI & Income Tax Calculator by Shashank Srivastava. No log-in required."></a>
+      <a href="" class="ssk ssk-twitter ssk-lg" data-via="shashanksriva"></a>
+      <a href="" class="ssk ssk-google-plus ssk-lg" data-url="https://shashankshekharsrivastava.github.io/"></a>
+      <a href="" class="ssk ssk-linkedin ssk-lg" data-url="https://shashankshekharsrivastava.github.io/" data-text="EMI & Income Tax Calculator by Shashank Srivastava. No log-in required."></a>
+    </div>
+  </center>
+  <script type="text/javascript">
+  SocialShareKit.init();
+</script>
+  </center>
+</body>
+</html>
