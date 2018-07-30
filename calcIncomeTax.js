@@ -5,6 +5,11 @@ function calc() {
   var TIC = Number(document.getElementById("additionalIncomeC").value);
   var HRA = Number(document.getElementById("hra").value);
   var CA = Number(document.getElementById("conveyance").value);
+  if (TIA <= 10000) {
+    var TIA = TIA;
+  } else {
+    TIA = TIA - 10000;
+  }
   var GI = (TI + TIA + TIB + TIC);
   var NI = (GI - HRA - CA);
   var PF = Number(document.getElementById("pf").value);
@@ -52,14 +57,17 @@ function calc() {
   }
   var cess = (3 * AT)/100;
   var totalTax = cess + AT;
-  document.getElementById("actualTax").innerHTML = "Income Tax : "+ AT;
-  document.getElementById("cess").innerHTML = "Health and Education Cess : "+ cess.toFixed(0);
-  document.getElementById("totalTax").innerHTML = "Total Tax : "+ totalTax;
-  document.getElementById("grossIncomeFinal").innerHTML = "Total Gross Income : "+ GI;
-  document.getElementById("netIncomeFinal").innerHTML = "Net Income : "+ NI;
-  document.getElementById("totalDeductions").innerHTML = "Total Deductions : "+ DEDUCTIONS;
-  document.getElementById("incometax").innerHTML = "Taxable Income : "+ taxableIncome;
+  <!--var Rupees = '<i class="fas fa-rupee-sign"></i>';-->
+  var Rupees = 'Rs.';
+  document.getElementById("actualTax").innerHTML = "Income Tax : "+ AT.toFixed(0) + " " + Rupees;
+  document.getElementById("cess").innerHTML = "Health and Education Cess : "+ cess.toFixed(0) + " " + Rupees;
+  document.getElementById("totalTax").innerHTML = "Total Tax : "+ totalTax.toFixed(0) + " " + Rupees;
+  document.getElementById("grossIncomeFinal").innerHTML = "Total Gross Income : "+ GI + " " + Rupees;
+  document.getElementById("netIncomeFinal").innerHTML = "Net Income : "+ NI + " " + Rupees;
+  document.getElementById("totalDeductions").innerHTML = "Total Deductions : "+ DEDUCTIONS + " " + Rupees;
+  document.getElementById("incometax").innerHTML = "Taxable Income : "+ taxableIncome  + " " + Rupees;
   document.getElementById("slab").innerHTML = "Income Tax Slab(%) : "+ slab;
+  document.getElementById("savingsAccountInterest").innerHTML = "Taxable Savings Account Interest(if any) : "+ TIA + " " + Rupees;
 }
 
 function netIncomeFn() {
