@@ -60,6 +60,7 @@ function toPDF() {
   var cess = document.getElementById("cess").innerHTML
   var totax = document.getElementById("totalTax").innerHTML
   var slab = document.getElementById("slab").innerHTML
+  var interestOnSavingsAc = document.getElementById("savingsAccountInterest").innerHTML
 
   doc.setFontSize(20);
   doc.text(20, 20, 'EMI & Income Tax Calculator by Shashank Srivastava.');
@@ -340,6 +341,14 @@ function toPDF() {
   </center>
   <script type="text/javascript">
   SocialShareKit.init();
+  $(function () {
+  $('[data-toggle="popover"]').popover()
+})
+$(function () {
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+})
 </script>
   </center>
 </body>
