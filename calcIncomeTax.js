@@ -57,7 +57,6 @@ function calc() {
   }
   var cess = (3 * AT)/100;
   var totalTax = cess + AT;
-  <!--var Rupees = '<i class="fas fa-rupee-sign"></i>';-->
   var Rupees = 'Rs.';
   document.getElementById("actualTax").innerHTML = "Income Tax : "+ AT.toFixed(0) + " " + Rupees;
   document.getElementById("cess").innerHTML = "Health and Education Cess : "+ cess.toFixed(0) + " " + Rupees;

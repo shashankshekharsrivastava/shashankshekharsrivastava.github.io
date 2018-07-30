@@ -74,30 +74,34 @@ function toPDF() {
 
   doc.setFont("helvetica");
   doc.setFontType("normal");
-  doc.text(20, 60, net);
+  doc.text(20, 60, interestOnSavingsAc);
+
+  doc.setFont("helvetica");
+  doc.setFontType("normal");
+  doc.text(20, 70, net);
 
   doc.setFont("courier");
   doc.setFontType("bolditalic");
-  doc.text(20, 70, deducts);
+  doc.text(20, 80, deducts);
 
   doc.setFont("helvetica");
   doc.setFontType("bold");
-  doc.text(20, 80, slab);
-  doc.text(20, 90, inctax);
-  doc.text(20, 100, actax);
+  doc.text(20, 90, slab);
+  doc.text(20, 100, inctax);
+  doc.text(20, 110, actax);
 
   doc.setFont("courier");
   doc.setFontType("italic");
-  doc.text(20, 110, cess);
+  doc.text(20, 120, cess);
 
   doc.setFont("helvetica")
   doc.setFontType("bold");
   doc.setFontSize(20);
-  doc.text(20, 120, totax);
+  doc.text(20, 130, totax);
 
   doc.setFont("helvetica")
   doc.setFontType("italic");
-  doc.text(20, 180, '"Help the needy, feed the hungry."');
+  doc.text(20, 190, '"Help the needy, feed the hungry."');
   doc.save('EMI & Income Tax Calculator.pdf');
 }
 </script>
