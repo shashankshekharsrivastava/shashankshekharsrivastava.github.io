@@ -234,27 +234,27 @@ function toPDF() {
         <div class="form-row align-items-center">
           <div class="col-auto">
             <label for="pf" class="font-weight-bold">Provident Fund</label>
-            <input type="number" class="form-control" id="pf" placeholder="PF" required>
+            <input type="number" class="form-control" id="pf" placeholder="PF" required onkeyup="netIncomeFn()">
           </div>
           <div class="col-auto">
             <label for="lic" class="font-weight-bold">Life Insurance</label>
-            <input type="number" class="form-control" id="lic" placeholder="All life insurance policies" data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-content="Add all the life insurance policies & enter the total amount here.">
+            <input type="number" class="form-control" id="lic" placeholder="All life insurance policies" data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-content="Add all the life insurance policies & enter the total amount here." onkeyup="netIncomeFn()">
           </div>
           <div class="col-auto">
             <label for="mf" class="font-weight-bold">Mutual Funds</label>
-            <input type="number" class="form-control" id="mf" placeholder="All mutual funds">
+            <input type="number" class="form-control" id="mf" placeholder="All mutual funds" onkeyup="netIncomeFn()">
           </div>
           <div class="col-auto">
             <label for="nsc" class="font-weight-bold">Interest from NSC</label>
-            <input type="number" class="form-control" id="nsc" placeholder="Lumpsum or in parts" data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-content="If you have received the maturity amount, enter the interest for 4 or 9 years here. If your certificates haven't matured yet, enter the annual interest you have earned.">
+            <input type="number" class="form-control" id="nsc" placeholder="Lumpsum or in parts" data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-content="If you have received the maturity amount, enter the interest for 4 or 9 years here. If your certificates haven't matured yet, enter the annual interest you have earned." onkeyup="netIncomeFn()">
           </div>
           <div class="col-auto">
             <label for="ppf" class="font-weight-bold">PPF</label>
-            <input type="number" class="form-control" id="ppf" placeholder="Public Provident Fund">
+            <input type="number" class="form-control" id="ppf" placeholder="Public Provident Fund" onkeyup="netIncomeFn()">
           </div>
           <div class="col-auto">
             <label for="homeloanPrincipal" class="font-weight-bold">House Property(Principal Repayment)</label>
-            <input type="number" class="form-control" id="homeloanPrincipal" placeholder="Include any Registry amount as well" data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-content="Enter the contribution towards principal repayment towards purchasing of your new house. Ask your loan provider for more information. A total of Rupees 1,50,000 can be claimed within the overall limit of Section 80C.">
+            <input type="number" class="form-control" id="homeloanPrincipal" placeholder="Include any Registry amount as well" data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-content="Enter the contribution towards principal repayment towards purchasing of your new house. Ask your loan provider for more information. A total of Rupees 1,50,000 can be claimed within the overall limit of Section 80C." onkeyup="netIncomeFn()">
           </div>
         </div>
         <br>
@@ -269,11 +269,11 @@ function toPDF() {
         <div class="form-row align-items-center">
           <div class="col-auto">
             <label for="medicalSelf" class="font-weight-bold">Premium For Self, Spouse or Dependent Children</label>
-            <input type="number" class="form-control" id="medicalSelf" placeholder="" onkeydown="netIncomeFn()" required>
+            <input type="number" class="form-control" id="medicalSelf" placeholder="" onkeyup="netIncomeFn()" required>
           </div>
           <div class="col-auto">
             <label for="medicalParents" class="font-weight-bold">Premium For Parents</label>
-            <input type="number" class="form-control" id="medicalParents" placeholder="" onkeydown="netIncomeFn()">
+            <input type="number" class="form-control" id="medicalParents" placeholder="" onkeyup="netIncomeFn()">
           </div>
         </div>
         <br>
