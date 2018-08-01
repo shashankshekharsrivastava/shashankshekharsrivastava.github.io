@@ -89,12 +89,13 @@ function netIncomeFn() {
   var MS = Number(document.getElementById("medicalSelf").value);
   var MP = Number(document.getElementById("medicalParents").value);
   var TM = (MS + MP)
+  var rupee = '<i class="fas fa-rupee-sign"></i>';
 
-  document.getElementById("netIncome").innerHTML = NI;
-  document.getElementById("grossIncome").innerHTML = GI;
-  document.getElementById("totalAllowance").innerHTML = TA;
-  document.getElementById("total80c").innerHTML = T80C;
-  document.getElementById("totalmed").innerHTML = TM;
+  document.getElementById("netIncome").innerHTML = rupee + " " + NI;
+  document.getElementById("grossIncome").innerHTML = rupee + " " + GI;
+  document.getElementById("totalAllowance").innerHTML = rupee + " " + TA;
+  document.getElementById("total80c").innerHTML = rupee + " " + T80C;
+  document.getElementById("totalmed").innerHTML = rupee + " " + TM;
 }
 
 function toWords() {
