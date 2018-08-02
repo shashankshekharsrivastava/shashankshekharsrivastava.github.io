@@ -1,3 +1,12 @@
+function enableCalcBtn() {
+  if (Number(document.getElementById("totalIncome").value.length > 0)) {
+    document.getElementById("incometaxCalculateBtn").disabled=false;
+  }
+  else {
+    document.getElementById("incometaxCalculateBtn").disabled=true;
+  }
+}
+
 function calc() {
   var TI = Number(document.getElementById("totalIncome").value);
   var TIA = Number(document.getElementById("additionalIncomeA").value);
