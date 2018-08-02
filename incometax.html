@@ -184,7 +184,7 @@ function toPDF() {
         <div class="form-row align-items-center">
           <div class="col-auto">
             <label for="totalIncome" class="font-weight-bold">Total Income</label>
-            <input type="number" class="form-control" id="totalIncome" placeholder="Gross Income" required>
+            <input type="number" class="form-control" id="totalIncome" placeholder="Gross Income" onkeyup="enableCalcBtn()" required>
           </div>
           <div class="col-auto">
             <label for="additionalIncomeA" class="font-weight-bold">Additional Income A</label>
