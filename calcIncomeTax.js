@@ -1,9 +1,12 @@
 function enableCalcBtn() {
   if (Number(document.getElementById("totalIncome").value.length > 0)) {
     document.getElementById("incometaxCalculateBtn").disabled=false;
+    document.getElementById("downloadPDFBtn").disabled=false;
+
   }
   else {
     document.getElementById("incometaxCalculateBtn").disabled=true;
+    document.getElementById("downloadPDFBtn").disabled=true;
   }
 }
 
