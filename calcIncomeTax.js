@@ -2,7 +2,6 @@ function enableCalcBtn() {
   if (Number(document.getElementById("totalIncome").value.length > 0)) {
     document.getElementById("incometaxCalculateBtn").disabled=false;
     document.getElementById("downloadPDFBtn").disabled=false;
-
   }
   else {
     document.getElementById("incometaxCalculateBtn").disabled=true;
@@ -108,15 +107,6 @@ function netIncomeFn() {
   document.getElementById("totalAllowance").innerHTML = rupee + " " + TA;
   document.getElementById("total80c").innerHTML = rupee + " " + T80C;
   document.getElementById("totalmed").innerHTML = rupee + " " + TM;
-}
-
-function toWords() {
-  var P = Number(document.getElementById("principal").value);
-  var N = Number(document.getElementById("duration").value*12);
-  var principalAmount = numberToWords.toWords(P);
-  var months = numberToWords.toWords(N);
-  document.getElementById("principalAmountInput").innerHTML = "The total loan amount chosen is... " + principalAmount;
-  document.getElementById("durationInMonths").innerHTML = "The duration in months is... " + months;
 }
 
 google.charts.load('current', {'packages':['corechart']});
