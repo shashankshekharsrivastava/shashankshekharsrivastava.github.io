@@ -328,6 +328,58 @@ function toPDF() {
         <br>
         <a href="https://shashankshekharsrivastava.github.io/" class="btn btn-primary">Home</a>
         <button type="button" id="downloadPDFBtn" class="btn btn-dark" onclick="toPDF()" disabled>Download</button>
+        <div class="btn-group" role="group">
+          <button id="btnGroupDrop1" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Charts
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <button class="dropdown-item" id="incomeTaxBreakup" data-toggle="modal" data-target="#breakupModal" type="submit" onclick="drawChart()">Income Breakup</button>
+            <button class="dropdown-item" id="SavingsBreakup" data-toggle="modal" data-target="#breakupSavingsModal" type="submit" onclick="drawSavingsChart()">Savings Breakup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--modal-income-breakup-->
+    <div class="modal fade bd-example-modal-lg" id="breakupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Income Breakup</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h3 class="text-info"><u>Chart showing the breakup of your income.</u></h3>
+            <div class="chart" id="piechart">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--modal-savings-breakup-->
+    <div class="modal fade bd-example-modal-lg" id="breakupSavingsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Savings/Deductions Breakup</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h3 class="text-info"><u>Chart showing the breakup of your Savings/Deductions under Section 80C.</u></h3>
+            <div class="chart" id="piechartSavings">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <hr>

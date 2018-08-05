@@ -118,3 +118,58 @@ function toWords() {
   document.getElementById("principalAmountInput").innerHTML = "The total loan amount chosen is... " + principalAmount;
   document.getElementById("durationInMonths").innerHTML = "The duration in months is... " + months;
 }
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawSavingsChart);
+  function drawChart() {
+    var TI = Number(document.getElementById("totalIncome").value);
+    var TIA = Number(document.getElementById("additionalIncomeA").value);
+    var TIB = Number(document.getElementById("additionalIncomeB").value);
+    var TIC = Number(document.getElementById("additionalIncomeC").value);
+    var data = google.visualization.arrayToDataTable([
+      ['Category', 'Amount'],
+      ['Total',     TI],
+      ['Savings Account',      TIA],
+      ['Mutual Funds/NSC',  TIB],
+      ['Other', TIC]
+    ]);
+
+    var options = {
+      width: 325,
+      is3D: true,
+      position: "right"
+    };
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    chart.draw(data, options);
+  }
+
+  function drawSavingsChart() {
+    var PF = Number(document.getElementById("pf").value);
+    var NSC = Number(document.getElementById("nsc").value);
+    var PPF = Number(document.getElementById("ppf").value);
+    var MF = Number(document.getElementById("mf").value);
+    var LIC = Number(document.getElementById("lic").value);
+    var HLP = Number(document.getElementById("homeloanPrincipal").value);
+    var data = google.visualization.arrayToDataTable([
+      ['Category', 'Amount'],
+      ['Provident Fund',     PF],
+      ['Public Provident Fund',     PPF],
+      ['NSC',      NSC],
+      ['Mutual Funds',  MF],
+      ['Life Insurance', LIC],
+      ['Home Loan Principal', HLP]
+    ]);
+
+    var options = {
+      width: 325,
+      pieHole: 0.4,
+      position: "right",
+      animation:{
+        startup: true,
+        duration: 100,
+    },
+  };
+    var chart = new google.visualization.PieChart(document.getElementById('piechartSavings'));
+      chart.draw(data, options);
+  }
