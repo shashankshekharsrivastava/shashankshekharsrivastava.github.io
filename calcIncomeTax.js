@@ -111,6 +111,8 @@ function netIncomeFn() {
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 google.charts.setOnLoadCallback(drawSavingsChart);
+google.charts.setOnLoadCallback(drawInvestmentChart);
+
   function drawChart() {
     var TI = Number(document.getElementById("totalIncome").value);
     var TIA = Number(document.getElementById("additionalIncomeA").value);
@@ -162,3 +164,31 @@ google.charts.setOnLoadCallback(drawSavingsChart);
     var chart = new google.visualization.PieChart(document.getElementById('piechartSavings'));
       chart.draw(data, options);
   }
+
+  function drawInvestmentChart() {
+  var NSC = Number(document.getElementById("nsc").value);
+  var PPF = Number(document.getElementById("ppf").value);
+  var MF = Number(document.getElementById("mf").value);
+  var LIC = Number(document.getElementById("lic").value);
+  var NPS = Number(document.getElementById("nps").value);
+  var data = google.visualization.arrayToDataTable([
+    ['Category', 'Amount(Rs)'],
+    ['NPS',     NPS],
+    ['Public Provident Fund',     PPF],
+    ['NSC',      NSC],
+    ['Mutual Funds',  MF],
+    ['Life Insurance', LIC]
+  ]);
+
+  var options = {
+    width: 500,
+    legend: "bottom",
+    title: "Breakup Summary",
+    animation:{
+      startup: true,
+      duration: 1500,
+    },
+  };
+  var chart = new google.visualization.ColumnChart(document.getElementById('piechartInvestments'));
+  chart.draw(data, options);
+}

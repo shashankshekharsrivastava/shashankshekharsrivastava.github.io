@@ -336,88 +336,110 @@ function toPDF() {
           <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
             <button class="dropdown-item" id="incomeTaxBreakup" data-toggle="modal" data-target="#breakupModal" type="submit" onclick="drawChart()">Income Breakup</button>
             <button class="dropdown-item" id="SavingsBreakup" data-toggle="modal" data-target="#breakupSavingsModal" type="submit" onclick="drawSavingsChart()">Savings Breakup</button>
+            <button class="dropdown-item" id="InvestmentsBreakup" data-toggle="modal" data-target="#breakupInvestmentsModal" type="submit" onclick="drawInvestmentChart()">Investments Breakup</button></div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!--modal-income-breakup-->
-    <div class="modal fade bd-example-modal-lg" id="breakupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Income Breakup</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <h3 class="text-info"><u>Chart showing the breakup of your income.</u></h3>
-            <div class="chart" id="piechart">
+      <!--modal-income-breakup-->
+      <div class="modal fade bd-example-modal-lg" id="breakupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Income Breakup</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-<!--modal-savings-breakup-->
-    <div class="modal fade bd-example-modal-lg" id="breakupSavingsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Savings/Deductions Breakup</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <h3 class="text-info"><u>Chart showing the breakup of your Savings/Deductions under Section 80C.</u></h3>
-            <div class="chart" id="piechartSavings">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <div class="modal-body">
+              <h3 class="text-info"><u>Chart showing the breakup of your income.</u></h3>
+              <div class="chart" id="piechart">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <hr>
-    <p class="text-monospace">Support this site. Please share with your friends.</p>
-    <div class="ssk-group ssk-count">
-      <a href="" class="ssk ssk-facebook ssk-lg" data-url="https://shashankshekharsrivastava.github.io/" data-text="EMI & Income Tax Calculator by Shashank Srivastava. No log-in required."></a>
-      <a href="" class="ssk ssk-twitter ssk-lg" data-via="shashanksriva"></a>
-      <a href="" class="ssk ssk-google-plus ssk-lg" data-url="https://shashankshekharsrivastava.github.io/"></a>
-      <a href="" class="ssk ssk-linkedin ssk-lg" data-url="https://shashankshekharsrivastava.github.io/" data-text="EMI & Income Tax Calculator by Shashank Srivastava. No log-in required."></a>
-      <a href="whatsapp://send?text=Calculate%20EMI%20and%20Income%20Tax%20with%20ease.%20No%20sign-in/sign-up required.%20No%20data%20collected.%20100%%20private.%20Visit%20https://shashankshekharsrivastava.github.io" class="ssk ssk-whatsapp ssk-lg"></a>
-    </div>
-  </center>
-  <script type="text/javascript">
-  SocialShareKit.init({ forceInit: true });
-  $(function () {
-    $('[data-toggle="popover"]').popover()
-  })
-  $(function () {
-    $('.popover-dismiss').popover({
-      trigger: 'focus'
+      <!--modal-savings-breakup-->
+      <div class="modal fade bd-example-modal-lg" id="breakupSavingsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Savings/Deductions Breakup</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h3 class="text-info"><u>Chart showing the breakup of your Savings/Deductions under Section 80C.</u></h3>
+              <div class="chart" id="piechartSavings">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal-savings-breakup-->
+      <div class="modal fade bd-example-modal-lg" id="breakupInvestmentsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Investments Breakup</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h3 class="text-info"><u>Chart showing the breakup of all your Investments.</u></h3>
+              <div class="chart" id="piechartInvestments">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+      <p class="text-monospace">Support this site. Please share with your friends.</p>
+      <div class="ssk-group ssk-count">
+        <a href="" class="ssk ssk-facebook ssk-lg" data-url="https://shashankshekharsrivastava.github.io/" data-text="EMI & Income Tax Calculator by Shashank Srivastava. No log-in required."></a>
+        <a href="" class="ssk ssk-twitter ssk-lg" data-via="shashanksriva"></a>
+        <a href="" class="ssk ssk-google-plus ssk-lg" data-url="https://shashankshekharsrivastava.github.io/"></a>
+        <a href="" class="ssk ssk-linkedin ssk-lg" data-url="https://shashankshekharsrivastava.github.io/" data-text="EMI & Income Tax Calculator by Shashank Srivastava. No log-in required."></a>
+        <a href="whatsapp://send?text=Calculate%20EMI%20and%20Income%20Tax%20with%20ease.%20No%20sign-in/sign-up required.%20No%20data%20collected.%20100%%20private.%20Visit%20https://shashankshekharsrivastava.github.io" class="ssk ssk-whatsapp ssk-lg"></a>
+      </div>
+    </center>
+    <script type="text/javascript">
+    SocialShareKit.init({ forceInit: true });
+    $(function () {
+      $('[data-toggle="popover"]').popover()
     })
-  })
-  </script>
-  <hr>
-  <center>
-    <div class="footer">
-      <h3><span class="badge badge-primary fa-spin"><></span> with <span class="badge badge-danger"><i class="fas fa-heart fa-spin"></i></span> by <span class="badge badge-info">Shashank Srivastava</span></h3>
-      <p class="text-secondary">This site is for the reference only. It can't be used as a legal proof. Always check with a CA when in doubt.</p>
-      <p class="text-info">Connect with me on social media. I would love to see you there!</p>
-      <div>
-        <a href="https://twitter.com/shashanksriva" class="ssk ssk-text ssk-twitter" data-ssk-ready="true">Twitter</a>
-        <a href="https://www.facebook.com/shazmix" class="ssk ssk-text ssk-facebook" data-ssk-ready="true">Facebook</a>
-        <a href="https://www.youtube.com/channel/UC_ZC2oiiJUjdffCqIZ5lLKw" class="ssk ssk-text ssk-youtube" data-ssk-ready="true">YouTube</a>
-        <a href="https://www.instagram.com/shashanksriva/" class="ssk ssk-text ssk-instagram" data-ssk-ready="true">Instagram</a>
-        <a href="https://plus.google.com/+ShashankSrivastava" class="ssk ssk-text ssk-google-plus" data-ssk-ready="true">Google+</a>
+    $(function () {
+      $('.popover-dismiss').popover({
+        trigger: 'focus'
+      })
+    })
+    </script>
+    <hr>
+    <center>
+      <div class="footer">
+        <h3><span class="badge badge-primary fa-spin"><></span> with <span class="badge badge-danger"><i class="fas fa-heart fa-spin"></i></span> by <span class="badge badge-info">Shashank Srivastava</span></h3>
+        <p class="text-secondary">This site is for the reference only. It can't be used as a legal proof. Always check with a CA when in doubt.</p>
+        <p class="text-info">Connect with me on social media. I would love to see you there!</p>
+        <div>
+          <a href="https://twitter.com/shashanksriva" class="ssk ssk-text ssk-twitter" data-ssk-ready="true">Twitter</a>
+          <a href="https://www.facebook.com/shazmix" class="ssk ssk-text ssk-facebook" data-ssk-ready="true">Facebook</a>
+          <a href="https://www.youtube.com/channel/UC_ZC2oiiJUjdffCqIZ5lLKw" class="ssk ssk-text ssk-youtube" data-ssk-ready="true">YouTube</a>
+          <a href="https://www.instagram.com/shashanksriva/" class="ssk ssk-text ssk-instagram" data-ssk-ready="true">Instagram</a>
+          <a href="https://plus.google.com/+ShashankSrivastava" class="ssk ssk-text ssk-google-plus" data-ssk-ready="true">Google+</a>
+        </div>
       </div>
-    </div>
-  </center>
-</body>
-</html>
+    </center>
+  </body>
+  </html>
