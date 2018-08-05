@@ -174,14 +174,14 @@ function drawInvestmentChart() {
   var data = google.visualization.arrayToDataTable([
     ['Category', 'Amount(Rs)'],
     ['NPS',     NPS],
-    ['Public Provident Fund',     PPF],
+    ['PPF',     PPF],
     ['NSC',      NSC],
-    ['Mutual Funds',  MF],
+    ['MF',  MF],
     ['Life Insurance', LIC]
   ]);
 
   var options = {
-    width: 500,
+    width: 350,
     legend: "bottom",
     title: "Breakup Summary",
     animation:{
