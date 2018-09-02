@@ -5,7 +5,7 @@ function calc() {
   var EMI = P * R / (1 - (Math.pow(1/(1 + R), N)));
   var EMIinWords = numberToWords.toWords(EMI);
   document.getElementById("myModalLabel").innerHTML = "The EMI is : - " + EMI.toFixed(2) + " Rupees.";
-  document.getElementById("myModalLabelinWords").innerHTML = "In other words, yout EMI is : - " + EMIinWords + " Rupees(rounded off).";
+  document.getElementById("myModalLabelinWords").innerHTML = "In other words, your EMI is : - " + EMIinWords + " Rupees(rounded off).";
 }
 
 function toWords() {
