@@ -32,8 +32,8 @@ xmlns:fb="http://ogp.me/ns/fb#" lang="en">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({
-google_ad_client: "ca-pub-0479862154014237",
-enable_page_level_ads: true
+  google_ad_client: "ca-pub-0479862154014237",
+  enable_page_level_ads: true
 });
 </script>
 
@@ -174,12 +174,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <h4 id="myModalLabelinWords" class="text-primary"></h4>
               </div>
               <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="shareBtn">Share</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
         </div>
-
+        <script>
+        document.getElementById('shareBtn').onclick = function() {
+          FB.ui({
+            method: 'share',
+            display: 'popup',
+            mobile_iframe: true,
+            href: 'https://shashankshekharsrivastava.github.io/',
+          }, function(response){});
+        }
+        </script>
         <!-- Modal -->
         <div class="modal fade bd-example-modal-lg" id="totalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
@@ -197,12 +207,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div class="chart" id="chart_div">
                 </div>
                 <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" id="shareBreakupBtn">Share</button>
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <script>
+        document.getElementById('shareBreakupBtn').onclick = function() {
+          FB.ui({
+            method: 'share',
+            display: 'popup',
+            mobile_iframe: true,
+            href: 'https://shashankshekharsrivastava.github.io/',
+          }, function(response){});
+        }
+        </script>
       </form>
       <hr>
       <p class="text-monospace">Support this site. Please share with your friends.</p>
@@ -219,18 +240,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </script>
     <hr>
     <center>
-    <div class="footer">
-      <h3><span class="badge badge-primary fa-spin"><></span> with <span class="badge badge-danger"><i class="fas fa-heart fa-spin"></i></span> by <span class="badge badge-info">Shashank Srivastava</span></h3>
-      <p class="text-secondary">This site is for the reference only. It can't be used as a legal proof. Always check with a CA when in doubt.</p>
-      <p class="text-info">Connect with me on social media. I would love to see you there!</p>
-    <div>
-      <a href="https://twitter.com/shashanksriva" class="ssk ssk-text ssk-twitter" data-ssk-ready="true">Twitter</a>
-      <a href="https://www.facebook.com/shazmix" class="ssk ssk-text ssk-facebook" data-ssk-ready="true">Facebook</a>
-      <a href="https://www.youtube.com/channel/UC_ZC2oiiJUjdffCqIZ5lLKw" class="ssk ssk-text ssk-youtube" data-ssk-ready="true">YouTube</a>
-      <a href="https://www.instagram.com/shashanksriva/" class="ssk ssk-text ssk-instagram" data-ssk-ready="true">Instagram</a>
-      <a href="https://plus.google.com/+ShashankSrivastava" class="ssk ssk-text ssk-google-plus" data-ssk-ready="true">Google+</a>
-    </div>
-    </div>
+      <div class="footer">
+        <h3><span class="badge badge-primary fa-spin"><></span> with <span class="badge badge-danger"><i class="fas fa-heart fa-spin"></i></span> by <span class="badge badge-info">Shashank Srivastava</span></h3>
+        <p class="text-secondary">This site is for the reference only. It can't be used as a legal proof. Always check with a CA when in doubt.</p>
+        <p class="text-info">Connect with me on social media. I would love to see you there!</p>
+        <div>
+          <a href="https://twitter.com/shashanksriva" class="ssk ssk-text ssk-twitter" data-ssk-ready="true">Twitter</a>
+          <a href="https://www.facebook.com/shazmix" class="ssk ssk-text ssk-facebook" data-ssk-ready="true">Facebook</a>
+          <a href="https://www.youtube.com/channel/UC_ZC2oiiJUjdffCqIZ5lLKw" class="ssk ssk-text ssk-youtube" data-ssk-ready="true">YouTube</a>
+          <a href="https://www.instagram.com/shashanksriva/" class="ssk ssk-text ssk-instagram" data-ssk-ready="true">Instagram</a>
+          <a href="https://plus.google.com/+ShashankSrivastava" class="ssk ssk-text ssk-google-plus" data-ssk-ready="true">Google+</a>
+        </div>
+      </div>
     </center>
     <div class="fb-quote"></div>
   </body>
