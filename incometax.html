@@ -31,7 +31,7 @@ xmlns:fb="http://ogp.me/ns/fb#" lang="en">
 
 <script type="text/javascript" src="numberToWords.min.js"></script>
 <script type="text/javascript" src="dist/js/social-share-kit.js"></script>
-<script src="jspdf.debug.js"</script>
+<script src="jspdf.debug.js"></script>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -204,7 +204,7 @@ function toPDF() {
           </div>
           <div class="col-auto">
             <label for="additionalIncomeA" class="font-weight-bold">Additional Income A</label>
-            <input type="number" class="form-control" id="additionalIncomeA" placeholder="Interest from Savings Account" required data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-content="If the interest earned for Savings Account exceeds 10,000 Rupees, the excess amount will be added to the Taxable Income.">
+            <input type="number" class="form-control" id="additionalIncomeA" placeholder="Interest from Savings Account" required data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-content="If the interest earned from Savings Account exceeds 10,000 Rupees, the excess amount will be added to the Taxable Income.">
           </div>
           <div class="col-auto">
             <label for="additionalIncomeB" class="font-weight-bold">Additional Income B</label>
@@ -227,7 +227,7 @@ function toPDF() {
         <div class="form-row align-items-center">
           <div class="col-auto">
             <label for="hra" class="font-weight-bold">HRA</label>
-            <input type="number" class="form-control" id="hra" placeholder="" onkeyup="netIncomeFn()" required>
+            <input type="number" class="form-control" id="hra" placeholder="House Rent Allowance" onkeyup="netIncomeFn()" required data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-content="Enter your actual annual HRA here.">
           </div>
           <div class="col-auto">
             <label for="conveyance" class="font-weight-bold">Conveyance Allowance</label>
@@ -312,7 +312,7 @@ function toPDF() {
         <div class="form-row align-items-center">
           <div class="col-auto">
             <label for="nps" class="font-weight-bold">NPS Investment</label>
-            <input type="number" class="form-control" id="nps" placeholder="">
+            <input type="number" class="form-control" id="nps" placeholder="National Pension Scheme" data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-html="true" data-content="An additional <b>50,000 Rupees</b> can be invested under NPS & is over and above the limit of 1,50,000 Rupees allowed under Section 80C.">
           </div>
         </div>
         <br>
@@ -465,7 +465,6 @@ function toPDF() {
           <a href="https://www.facebook.com/shazmix" class="ssk ssk-text ssk-facebook" data-ssk-ready="true">Facebook</a>
           <a href="https://www.youtube.com/channel/UC_ZC2oiiJUjdffCqIZ5lLKw" class="ssk ssk-text ssk-youtube" data-ssk-ready="true">YouTube</a>
           <a href="https://www.instagram.com/shashanksriva/" class="ssk ssk-text ssk-instagram" data-ssk-ready="true">Instagram</a>
-          <a href="https://plus.google.com/+ShashankSrivastava" class="ssk ssk-text ssk-google-plus" data-ssk-ready="true">Google+</a>
         </div>
       </div>
     </center>
