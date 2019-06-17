@@ -10,44 +10,45 @@ function enableCalcBtn() {
 }
 
 function calc() {
-  var TI = Number(document.getElementById("totalIncome").value);
-  var TIA = Number(document.getElementById("additionalIncomeA").value);
-  var TIB = Number(document.getElementById("additionalIncomeB").value);
-  var TIC = Number(document.getElementById("additionalIncomeC").value);
-  var HRA = Number(document.getElementById("hra").value);
-  var CA = Number(document.getElementById("conveyance").value);
-  if (TIA <= 10000) {
-    var TIA = TIA;
+  var totalIncome = Number(document.getElementById("totalIncome").value);
+  var additionalIncomeA = Number(document.getElementById("additionalIncomeA").value);
+  var additionalIncomeB = Number(document.getElementById("additionalIncomeB").value);
+  var additionalIncomeC = Number(document.getElementById("additionalIncomeC").value);
+  var houseRentAllowance = Number(document.getElementById("hra").value);
+  var conveyanceAllowance = Number(document.getElementById("conveyance").value);
+  var standardDeduction = Number(document.getElementById("standard-deduction").value);
+  if (additionalIncomeA <= 10000) {
+    var additionalIncomeA = additionalIncomeA;
   } else {
-    TIA = TIA - 10000;
+    additionalIncomeA = additionalIncomeA - 10000;
   }
-  var GI = (TI + TIA + TIB + TIC);
-  var NI = (GI - HRA - CA);
-  var PF = Number(document.getElementById("pf").value);
-  var NSC = Number(document.getElementById("nsc").value);
-  var PPF = Number(document.getElementById("ppf").value);
-  var MF = Number(document.getElementById("mf").value);
-  var LIC = Number(document.getElementById("lic").value);
-  var HLP = Number(document.getElementById("homeloanPrincipal").value);
-  var T80C = (PF + NSC + PPF + MF + LIC + HLP);
-  if (T80C <= 150000) {
-    var T80C = T80C;
+  var grossIncome = (totalIncome + additionalIncomeA + additionalIncomeB + additionalIncomeC);
+  var netIncome = (grossIncome - houseRentAllowance - conveyanceAllowance - standardDeduction);
+  var providentFund = Number(document.getElementById("pf").value);
+  var nationalSavingScheme = Number(document.getElementById("nsc").value);
+  var publicProvidentFund = Number(document.getElementById("ppf").value);
+  var mutualFunds = Number(document.getElementById("mf").value);
+  var lifeInsurance = Number(document.getElementById("lic").value);
+  var homeloanPrincipal = Number(document.getElementById("homeloanPrincipal").value);
+  var section80C = (providentFund + nationalSavingScheme + publicProvidentFund + mutualFunds + lifeInsurance + homeloanPrincipal);
+  if (section80C <= 150000) {
+    var section80C = section80C;
   } else {
-    T80C = 150000;
+    section80C = 150000;
   }
-  var MS = Number(document.getElementById("medicalSelf").value);
-  var MP = Number(document.getElementById("medicalParents").value);
-  var TM = (MS + MP)
-  var EL = Number(document.getElementById("education").value);
-  var NPS = Number(document.getElementById("nps").value);
-  if (NPS <= 50000) {
-    var NPS = NPS;
+  var medicalInsurancePremiumSelf = Number(document.getElementById("medicalSelf").value);
+  var medicalInsurancePremiumParents = Number(document.getElementById("medicalParents").value);
+  var totalMedicalInsurancePremium = (medicalInsurancePremiumSelf + medicalInsurancePremiumParents)
+  var educationLoanInterest = Number(document.getElementById("education").value);
+  var nationalPensionScheme = Number(document.getElementById("nps").value);
+  if (nationalPensionScheme <= 50000) {
+    var nationalPensionScheme = nationalPensionScheme;
   } else {
-    NPS = 50000;
+    nationalPensionScheme = 50000;
   }
-  var HLI = Number(document.getElementById("homeloanInterest").value);
-  var DEDUCTIONS = (T80C + TM + EL + NPS + HLI);
-  var taxableIncome = (NI - DEDUCTIONS);
+  var homeLoanInterest = Number(document.getElementById("homeloanInterest").value);
+  var deductions = (section80C + totalMedicalInsurancePremium + educationLoanInterest + nationalPensionScheme + homeLoanInterest);
+  var taxableIncome = (netIncome - deductions);
 
   if (taxableIncome < 250000) {
     document.getElementById("totalTax").innerHTML = "Your taxable income is less than 2,50,000 Rupees. No tax payable!";
@@ -55,57 +56,57 @@ function calc() {
   } else if (taxableIncome >= 250000 && taxableIncome <= 500000) {
     var slab = 5;
     var netTaxpayable = ( taxableIncome - 250000);
-    var AT = (( 5 * netTaxpayable ) / 100);
+    var actualTax = (( 5 * netTaxpayable ) / 100);
   } else if (taxableIncome >= 500000 && taxableIncome <= 1000000) {
     var slab = 20;
     var netTaxpayable = (taxableIncome - 500000);
-    var AT = (20 * netTaxpayable)/ 100 + 12500;
+    var actualTax = (20 * netTaxpayable)/ 100 + 12500;
   }
   else if (taxableIncome > 1000000){
     slab = 30;
     netTaxpayable = ( taxableIncome - 500000);
-    AT = (( 30 * taxableIncome ) / 100 ) + 100000 + 12500;
+    actualTax = (( 30 * taxableIncome ) / 100 ) + 100000 + 12500;
   }
-  var cess = (3 * AT)/100;
-  var totalTax = cess + AT;
+  var cess = (3 * actualTax)/100;
+  var totalTax = cess + actualTax;
   var Rupees = 'Rs.';
-  document.getElementById("actualTax").innerHTML = "Income Tax : "+ AT.toFixed(0) + " " + Rupees;
+  document.getElementById("actualTax").innerHTML = "Income Tax : "+ actualTax.toFixed(0) + " " + Rupees;
   document.getElementById("cess").innerHTML = "Health and Education Cess : "+ cess.toFixed(0) + " " + Rupees;
   document.getElementById("totalTax").innerHTML = "Total Tax : "+ totalTax.toFixed(0) + " " + Rupees;
-  document.getElementById("grossIncomeFinal").innerHTML = "Total Gross Income : "+ GI + " " + Rupees;
-  document.getElementById("netIncomeFinal").innerHTML = "Net Income : "+ NI + " " + Rupees;
-  document.getElementById("totalDeductions").innerHTML = "Total Deductions : "+ DEDUCTIONS + " " + Rupees;
+  document.getElementById("grossIncomeFinal").innerHTML = "Total Gross Income : "+ grossIncome + " " + Rupees;
+  document.getElementById("netIncomeFinal").innerHTML = "Net Income : "+ netIncome + " " + Rupees;
+  document.getElementById("totalDeductions").innerHTML = "Total Deductions : "+ deductions + " " + Rupees;
   document.getElementById("incometax").innerHTML = "Taxable Income : "+ taxableIncome  + " " + Rupees;
   document.getElementById("slab").innerHTML = "Income Tax Slab(%) : "+ slab;
-  document.getElementById("savingsAccountInterest").innerHTML = "Taxable Savings Account Interest(if any) : "+ TIA + " " + Rupees;
+  document.getElementById("savingsAccountInterest").innerHTML = "Taxable Savings Account Interest(if any) : "+ additionalIncomeA + " " + Rupees;
 }
 
 function netIncomeFn() {
-  var TI = Number(document.getElementById("totalIncome").value);
-  var TIA = Number(document.getElementById("additionalIncomeA").value);
-  var TIB = Number(document.getElementById("additionalIncomeB").value);
-  var TIC = Number(document.getElementById("additionalIncomeC").value);
-  var GI = (TI + TIA + TIB + TIC);
-  var HRA = Number(document.getElementById("hra").value);
-  var CA = Number(document.getElementById("conveyance").value);
-  var NI = (GI - HRA - CA);
-  var TA = (HRA + CA);
-  var PF = Number(document.getElementById("pf").value);
-  var NSC = Number(document.getElementById("nsc").value);
-  var PPF = Number(document.getElementById("ppf").value);
-  var MF = Number(document.getElementById("mf").value);
-  var LIC = Number(document.getElementById("lic").value);
-  var HLP = Number(document.getElementById("homeloanPrincipal").value);
-  var T80C = (PF + NSC + PPF + MF + LIC + HLP);
-  var MS = Number(document.getElementById("medicalSelf").value);
-  var MP = Number(document.getElementById("medicalParents").value);
-  var TM = (MS + MP)
-  var rupee = '<i class="fas fa-rupee-sign"></i>';
-  document.getElementById("netIncome").innerHTML = rupee + " " + NI;
-  document.getElementById("grossIncome").innerHTML = rupee + " " + GI;
-  document.getElementById("totalAllowance").innerHTML = rupee + " " + TA;
-  document.getElementById("total80c").innerHTML = rupee + " " + T80C;
-  document.getElementById("totalmed").innerHTML = rupee + " " + TM;
+  var totalIncome = Number(document.getElementById("totalIncome").value);
+  var additionalIncomeA = Number(document.getElementById("additionalIncomeA").value);
+  var additionalIncomeB = Number(document.getElementById("additionalIncomeB").value);
+  var additionalIncomeC = Number(document.getElementById("additionalIncomeC").value);
+  var grossIncome = (totalIncome + additionalIncomeA + additionalIncomeB + additionalIncomeC);
+  var houseRentAllowance = Number(document.getElementById("hra").value);
+  var conveyanceAllowance = Number(document.getElementById("conveyance").value);
+  var netIncome = (grossIncome - houseRentAllowance - conveyanceAllowance - standardDeduction);
+  var totalAllowance = (houseRentAllowance + conveyanceAllowance);
+  var providentFund = Number(document.getElementById("pf").value);
+  var nationalSavingScheme = Number(document.getElementById("nsc").value);
+  var publicProvidentFund = Number(document.getElementById("ppf").value);
+  var mutualFunds = Number(document.getElementById("mf").value);
+  var lifeInsurance = Number(document.getElementById("lic").value);
+  var homeloanPrincipal = Number(document.getElementById("homeloanPrincipal").value);
+  var section80C = (providentFund + nationalSavingScheme + publicProvidentFund + mutualFunds + lifeInsurance + homeloanPrincipal);
+  var medicalInsurancePremiumSelf = Number(document.getElementById("medicalSelf").value);
+  var medicalInsurancePremiumParents = Number(document.getElementById("medicalParents").value);
+  var totalMedicalInsurancePremium = (medicalInsurancePremiumSelf + medicalInsurancePremiumParents)
+  var rupeeFAIcon = '<i class="fas fa-rupee-sign"></i>';
+  document.getElementById("netIncome").innerHTML = rupeeFAIcon + " " + netIncome;
+  document.getElementById("grossIncome").innerHTML = rupeeFAIcon + " " + grossIncome;
+  document.getElementById("totalAllowance").innerHTML = rupeeFAIcon + " " + totalAllowance;
+  document.getElementById("total80c").innerHTML = rupeeFAIcon + " " + section80C;
+  document.getElementById("totalmed").innerHTML = rupeeFAIcon + " " + totalMedicalInsurancePremium;
 }
 
 google.charts.load('current', {'packages':['corechart']});
@@ -114,16 +115,16 @@ google.charts.setOnLoadCallback(drawSavingsChart);
 google.charts.setOnLoadCallback(drawInvestmentChart);
 
 function drawChart() {
-  var TI = Number(document.getElementById("totalIncome").value);
-  var TIA = Number(document.getElementById("additionalIncomeA").value);
-  var TIB = Number(document.getElementById("additionalIncomeB").value);
-  var TIC = Number(document.getElementById("additionalIncomeC").value);
+  var totalIncome = Number(document.getElementById("totalIncome").value);
+  var additionalIncomeA = Number(document.getElementById("additionalIncomeA").value);
+  var additionalIncomeB = Number(document.getElementById("additionalIncomeB").value);
+  var additionalIncomeC = Number(document.getElementById("additionalIncomeC").value);
   var data = google.visualization.arrayToDataTable([
     ['Category', 'Amount'],
-    ['Total',     TI],
-    ['Savings Account',      TIA],
-    ['Mutual Funds/NSC',  TIB],
-    ['Other', TIC]
+    ['Total',     totalIncome],
+    ['Savings Account Interest',      additionalIncomeA],
+    ['Mutual Funds/NSC',  additionalIncomeB],
+    ['Other', additionalIncomeC]
   ]);
 
   var options = {
@@ -136,20 +137,20 @@ function drawChart() {
 }
 
 function drawSavingsChart() {
-  var PF = Number(document.getElementById("pf").value);
-  var NSC = Number(document.getElementById("nsc").value);
-  var PPF = Number(document.getElementById("ppf").value);
-  var MF = Number(document.getElementById("mf").value);
-  var LIC = Number(document.getElementById("lic").value);
-  var HLP = Number(document.getElementById("homeloanPrincipal").value);
+  var providentFund = Number(document.getElementById("pf").value);
+  var nationalSavingScheme = Number(document.getElementById("nsc").value);
+  var publicProvidentFund = Number(document.getElementById("ppf").value);
+  var mutualFunds = Number(document.getElementById("mf").value);
+  var lifeInsurance = Number(document.getElementById("lic").value);
+  var homeloanPrincipal = Number(document.getElementById("homeloanPrincipal").value);
   var data = google.visualization.arrayToDataTable([
     ['Category', 'Amount'],
-    ['Provident Fund',     PF],
-    ['Public Provident Fund',     PPF],
-    ['NSC',      NSC],
-    ['Mutual Funds',  MF],
-    ['Life Insurance', LIC],
-    ['Home Loan Principal', HLP]
+    ['Provident Fund',     providentFund],
+    ['Public Provident Fund',     publicProvidentFund],
+    ['NSC',      nationalSavingScheme],
+    ['Mutual Funds',  mutualFunds],
+    ['Life Insurance', lifeInsurance],
+    ['Home Loan Principal', homeloanPrincipal]
   ]);
 
   var options = {
@@ -166,18 +167,18 @@ function drawSavingsChart() {
 }
 
 function drawInvestmentChart() {
-  var NSC = Number(document.getElementById("nsc").value);
-  var PPF = Number(document.getElementById("ppf").value);
-  var MF = Number(document.getElementById("mf").value);
-  var LIC = Number(document.getElementById("lic").value);
-  var NPS = Number(document.getElementById("nps").value);
+  var nationalSavingScheme = Number(document.getElementById("nsc").value);
+  var publicProvidentFund = Number(document.getElementById("ppf").value);
+  var mutualFunds = Number(document.getElementById("mf").value);
+  var lifeInsurance = Number(document.getElementById("lic").value);
+  var nationalPensionScheme = Number(document.getElementById("nps").value);
   var data = google.visualization.arrayToDataTable([
     ['Category', 'Amount(Rs)'],
-    ['NPS',     NPS],
-    ['PPF',     PPF],
-    ['NSC',      NSC],
-    ['MF',  MF],
-    ['Life Insurance', LIC]
+    ['NPS',     nationalSavingScheme],
+    ['PPF',     publicProvidentFund],
+    ['NSC',      nationalSavingScheme],
+    ['MF',  mutualFunds],
+    ['Life Insurance', lifeInsurance]
   ]);
 
   var options = {
