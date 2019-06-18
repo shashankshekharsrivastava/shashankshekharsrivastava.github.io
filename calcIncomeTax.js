@@ -89,6 +89,7 @@ function netIncomeFn() {
   var grossIncome = (totalIncome + additionalIncomeA + additionalIncomeB + additionalIncomeC);
   var houseRentAllowance = Number(document.getElementById("hra").value);
   var conveyanceAllowance = Number(document.getElementById("conveyance").value);
+  var standardDeduction = Number(document.getElementById("standard-deduction").value);
   var netIncome = (grossIncome - houseRentAllowance - conveyanceAllowance - standardDeduction);
   var totalAllowance = (houseRentAllowance + conveyanceAllowance);
   var providentFund = Number(document.getElementById("pf").value);
