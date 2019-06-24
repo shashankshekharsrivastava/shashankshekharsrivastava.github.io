@@ -144,27 +144,28 @@ function drawSavingsChart() {
   var mutualFunds = Number(document.getElementById("mf").value);
   var lifeInsurance = Number(document.getElementById("lic").value);
   var homeloanPrincipal = Number(document.getElementById("homeloanPrincipal").value);
-  var data = google.visualization.arrayToDataTable([
-    ['Category', 'Amount'],
-    ['Provident Fund',     providentFund],
-    ['Public Provident Fund',     publicProvidentFund],
-    ['NSC',      nationalSavingScheme],
-    ['Mutual Funds',  mutualFunds],
-    ['Life Insurance', lifeInsurance],
-    ['Home Loan Principal', homeloanPrincipal]
-  ]);
-
-  var options = {
-    width: 325,
-    pieHole: 0.4,
-    position: "right",
-    animation:{
-      startup: true,
-      duration: 100,
-    },
-  };
-  var chart = new google.visualization.PieChart(document.getElementById('piechartSavings'));
-  chart.draw(data, options);
+  var chartData = {
+    labels: ['Provident Fund', 'Public Provident Fund', 'NSC', 'Mutual Funds', 'Life Insurance Policies'],
+    datasets: [{
+      label: 'Trips',
+      data: [providentFund, publicProvidentFund, nationalSavingScheme, mutualFunds, lifeInsurance],
+      spanGaps: false,
+      backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", 'rgb(66, 244, 167)', 'rgb(157, 65, 244)']
+    }]
+  }
+  // get chart canvas
+  var ctx = document.getElementById("piechartSavings");
+  // create the chart using the chart canvas
+  var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: chartData,
+    options: {
+      title: {
+        display: true,
+        text: 'Section 80C Breakup'
+      }
+    }
+  });
 }
 
 function drawInvestmentChart() {
