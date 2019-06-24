@@ -120,21 +120,26 @@ function drawChart() {
   var additionalIncomeA = Number(document.getElementById("additionalIncomeA").value);
   var additionalIncomeB = Number(document.getElementById("additionalIncomeB").value);
   var additionalIncomeC = Number(document.getElementById("additionalIncomeC").value);
-  var data = google.visualization.arrayToDataTable([
-    ['Category', 'Amount'],
-    ['Total',     totalIncome],
-    ['Savings Account Interest',      additionalIncomeA],
-    ['Mutual Funds/NSC',  additionalIncomeB],
-    ['Other', additionalIncomeC]
-  ]);
-
-  var options = {
-    width: 325,
-    is3D: true,
-    position: "right"
-  };
-  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-  chart.draw(data, options);
+  // get chart canvas
+  var ctx = document.getElementById("piechart");
+  // create the chart using the chart canvas
+  var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Total Salary', 'Savings Account Interest', 'Mutual Funds/NSC', 'Other'],
+      datasets: [{
+        label: 'Rupees',
+        data: [totalIncome, additionalIncomeA, additionalIncomeB, additionalIncomeC],
+        backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", 'rgb(66, 244, 167)']
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Income Breakup'
+      }
+    }
+  });
 }
 
 function drawSavingsChart() {
@@ -147,7 +152,7 @@ function drawSavingsChart() {
   var chartData = {
     labels: ['Provident Fund', 'Public Provident Fund', 'NSC', 'Mutual Funds', 'Life Insurance Policies'],
     datasets: [{
-      label: 'Trips',
+      label: 'Rupees',
       data: [providentFund, publicProvidentFund, nationalSavingScheme, mutualFunds, lifeInsurance],
       spanGaps: false,
       backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", 'rgb(66, 244, 167)', 'rgb(157, 65, 244)']
