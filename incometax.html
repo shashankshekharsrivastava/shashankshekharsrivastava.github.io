@@ -1,137 +1,153 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:fb="http://ogp.me/ns/fb#" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" lang="en">
+
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122679296-1"></script>
   <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'UA-122679296-1');
-</script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<meta name="author" content="Shashank Srivastava.">
-<meta name="keywords" content="emi calculator, anonymous emi calculator, safe & private emi calculator, secure emi calculator, emi calculator without saving any data, income tax calculator, secure income tax calculator, private income tax calculator, income tax calculator with no data collection, anonymous income tax calculator">
-<title>EMI & Income Tax Calculator by Shashank Srivastava</title>
-<meta name="description" content="An extremely light-weight, fast web-app with a clean interface to calculate loan EMI & Income Tax, written purely in HTML & JavaScript. No log-in required. No data saved. Fully secure & private.">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-<link href="https://getbootstrap.com/docs/4.1/examples/pricing/pricing.css" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-<link rel="stylesheet" href="dist/css/social-share-kit.css" type="text/css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    gtag('config', 'UA-122679296-1');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <meta name="author" content="Shashank Srivastava.">
+  <meta name="keywords"
+    content="emi calculator, anonymous emi calculator, safe & private emi calculator, secure emi calculator, emi calculator without saving any data, income tax calculator, secure income tax calculator, private income tax calculator, income tax calculator with no data collection, anonymous income tax calculator">
+  <title>EMI & Income Tax Calculator by Shashank Srivastava</title>
+  <meta name="description"
+    content="An extremely light-weight, fast web-app with a clean interface to calculate loan EMI & Income Tax, written purely in HTML & JavaScript. No log-in required. No data saved. Fully secure & private.">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+    integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <link href="https://getbootstrap.com/docs/4.1/examples/pricing/pricing.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="dist/css/social-share-kit.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"
+    integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+    crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="numberToWords.min.js"></script>
-<script type="text/javascript" src="dist/js/social-share-kit.js"></script>
-<script src="jspdf.debug.js"></script>
+  <script type="text/javascript" src="numberToWords.min.js"></script>
+  <script type="text/javascript" src="dist/js/social-share-kit.js"></script>
+  <script src="jspdf.debug.js"></script>
 
-<!--Chartjs Library-->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css">
-  
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({
-  google_ad_client: "ca-pub-0479862154014237",
-  enable_page_level_ads: true
-});
-</script>
+  <!--Chartjs Library-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css">
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5JM9N5M');</script>
-<!-- End Google Tag Manager -->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-0479862154014237",
+      enable_page_level_ads: true
+    });
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5JM9N5M');</script>
+  <!-- End Google Tag Manager -->
 </head>
 
 <script type="text/javascript" src="calcIncomeTax.js"></script>
 <script type="text/javascript">
-function toPDF() {
-  var doc = new jsPDF();
-  var Rupees = 'Rs.';
-  var gross = document.getElementById("grossIncomeFinal").innerHTML
-  var net = document.getElementById("netIncomeFinal").innerHTML
-  var deducts = document.getElementById("totalDeductions").innerHTML
-  var inctax = document.getElementById("incometax").innerHTML
-  var actax = document.getElementById("actualTax").innerHTML
-  var cess = document.getElementById("cess").innerHTML
-  var totax = document.getElementById("totalTax").innerHTML
-  var slab = document.getElementById("slab").innerHTML
-  var interestOnSavingsAc = document.getElementById("savingsAccountInterest").innerHTML
+  function toPDF() {
+    var doc = new jsPDF();
+    var Rupees = 'Rs.';
+    var gross = document.getElementById("grossIncomeFinal").innerHTML
+    var net = document.getElementById("netIncomeFinal").innerHTML
+    var deducts = document.getElementById("totalDeductions").innerHTML
+    var inctax = document.getElementById("incometax").innerHTML
+    var actax = document.getElementById("actualTax").innerHTML
+    var cess = document.getElementById("cess").innerHTML
+    var totax = document.getElementById("totalTax").innerHTML
+    var slab = document.getElementById("slab").innerHTML
+    var interestOnSavingsAc = document.getElementById("savingsAccountInterest").innerHTML
 
-  doc.setFontSize(20);
-  doc.text(20, 20, 'EMI & Income Tax Calculator by Shashank Srivastava.');
+    doc.setFontSize(20);
+    doc.text(20, 20, 'EMI & Income Tax Calculator by Shashank Srivastava.');
 
-  doc.setFont("courier");
-  doc.setFontType("normal");
-  doc.text(20, 30, 'This is the transcript.');
+    doc.setFont("courier");
+    doc.setFontType("normal");
+    doc.text(20, 30, 'This is the transcript.');
 
-  doc.setFont("helvetica");
-  doc.setFontType("normal");
-  doc.text(20, 50, gross);
+    doc.setFont("helvetica");
+    doc.setFontType("normal");
+    doc.text(20, 50, gross);
 
-  doc.setFont("helvetica");
-  doc.setFontType("normal");
-  doc.text(20, 60, interestOnSavingsAc);
+    doc.setFont("helvetica");
+    doc.setFontType("normal");
+    doc.text(20, 60, interestOnSavingsAc);
 
-  doc.setFont("helvetica");
-  doc.setFontType("normal");
-  doc.text(20, 70, net);
+    doc.setFont("helvetica");
+    doc.setFontType("normal");
+    doc.text(20, 70, net);
 
-  doc.setFont("courier");
-  doc.setFontType("bolditalic");
-  doc.text(20, 80, deducts);
+    doc.setFont("courier");
+    doc.setFontType("bolditalic");
+    doc.text(20, 80, deducts);
 
-  doc.setFont("helvetica");
-  doc.setFontType("bold");
-  doc.text(20, 90, slab);
-  doc.text(20, 100, inctax);
-  doc.text(20, 110, actax);
+    doc.setFont("helvetica");
+    doc.setFontType("bold");
+    doc.text(20, 90, slab);
+    doc.text(20, 100, inctax);
+    doc.text(20, 110, actax);
 
-  doc.setFont("courier");
-  doc.setFontType("italic");
-  doc.text(20, 120, cess);
+    doc.setFont("courier");
+    doc.setFontType("italic");
+    doc.text(20, 120, cess);
 
-  doc.setFont("helvetica")
-  doc.setFontType("bold");
-  doc.setFontSize(20);
-  doc.text(20, 130, totax);
+    doc.setFont("helvetica")
+    doc.setFontType("bold");
+    doc.setFontSize(20);
+    doc.text(20, 130, totax);
 
-  doc.setFont("helvetica")
-  doc.setFontType("italic");
-  doc.text(20, 190, '"Help the needy, feed the hungry."');
-  doc.save('EMI & Income Tax Calculator.pdf');
-}
+    doc.setFont("helvetica")
+    doc.setFontType("italic");
+    doc.text(20, 190, '"Help the needy, feed the hungry."');
+    doc.save('EMI & Income Tax Calculator.pdf');
+  }
 </script>
+
 <body>
   <div id="fb-root"></div>
   <script>
-  window.fbAsyncInit = function() {
-    FB.init();
-    FB.AppEvents.logPageView();
-  };
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1&appId=2239456259619514&autoLogAppEvents=1';
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
+    window.fbAsyncInit = function () {
+      FB.init();
+      FB.AppEvents.logPageView();
+    };
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1&appId=2239456259619514&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
     <h5 class="my-0 mr-md-auto font-weight-bold">EMI & Income Tax Calculator</h5>
     <nav class="my-2 my-md-0 mr-md-3">
-      <button class="btn btn-outline-success" type="button" data-toggle="modal" data-target="#featuresModal">Features</button>
+      <button class="btn btn-outline-success" type="button" data-toggle="modal"
+        data-target="#featuresModal">Features</button>
       <!-- Modal -->
-      <div class="modal fade" id="featuresModal" tabindex="-1" role="dialog" aria-labelledby="featuresModalLabel" aria-hidden="true">
+      <div class="modal fade" id="featuresModal" tabindex="-1" role="dialog" aria-labelledby="featuresModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -144,11 +160,14 @@ function toPDF() {
               <li><i class="fas fa-calculator"></i> EMI & Income Tax Calculator.</li>
               <li><i class="fas fa-sign-in-alt"></i> No sign-in/sign-up required.</li>
               <li><i class="fas fa-not-equal"></i> No data collected or stored. 100% safe, secure & private.</li>
-              <li><i class="fab fa-chrome"></i> All the calculations are done on your browser. There is no backend server.</li>
+              <li><i class="fab fa-chrome"></i> All the calculations are done on your browser. There is no backend
+                server.</li>
               <li><i class="fas fa-file-pdf"></i> Download your data as PDF.</li>
-              <li><i class="fas fa-lock"></i> HTTPS site. No one can see the data you enter. Not even you, if you click back.</li>
+              <li><i class="fas fa-lock"></i> HTTPS site. No one can see the data you enter. Not even you, if you click
+                back.</li>
               <li><i class="fas fa-shipping-fast"></i> Loads really fast.</li>
-              <li><i class="fas fa-file-word"></i> Know the amount you are entering in real time (for EMI Calculator).</li>
+              <li><i class="fas fa-file-word"></i> Know the amount you are entering in real time (for EMI Calculator).
+              </li>
               <li><i class="fas fa-info"></i> See the breakup of principal & interest amount.</li>
               <li><i class="fab fa-js-square"></i> Single page app. Written in pure HTML & JavaScript.</li>
               <li><i class="fas fa-feather"></i> Extremely lightweight.</li>
@@ -163,7 +182,8 @@ function toPDF() {
 
       <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#blogsModal">Blogs</button>
       <!-- Modal -->
-      <div class="modal fade" id="blogsModal" tabindex="-1" role="dialog" aria-labelledby="blogsModalLabel" aria-hidden="true">
+      <div class="modal fade" id="blogsModal" tabindex="-1" role="dialog" aria-labelledby="blogsModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -173,12 +193,18 @@ function toPDF() {
               </button>
             </div>
             <div class="modal-body">
-              <li><i class="fab fa-blogger"></i><a href="https://mymusicrevu.blogspot.com/"> Music Sharing & Reviews.</a></li>
-              <li><i class="fab fa-blogger"></i><a href="https://shashankstraveldiary.blogspot.com//"> Travel Experience.</a></li>
-              <li><i class="fab fa-wordpress"></i><a href="https://watilearnd2day.wordpress.com/"> Linux/DevOps/Automation How To.</a></li>
-              <li><i class="fab fa-blogger"></i><a href="https://thepagesbetweenfingers.blogspot.com/"> Books Suggestions & Reviews.</a></li>
-              <li><i class="fab fa-blogger"></i><a href="https://skinny2healthy.blogspot.in//"> Health & Fitness.</a></li>
-              <li><i class="fab fa-blogger"></i><a href="https://thepagesbetweenfingers.blogspot.com/"> Book Revies.</a></li>
+              <li><i class="fab fa-blogger"></i><a href="https://mymusicrevu.blogspot.com/"> Music Sharing &
+                  Reviews.</a></li>
+              <li><i class="fab fa-blogger"></i><a href="https://shashankstraveldiary.blogspot.com//"> Travel
+                  Experience.</a></li>
+              <li><i class="fab fa-wordpress"></i><a href="https://watilearnd2day.wordpress.com/">
+                  Linux/DevOps/Automation How To.</a></li>
+              <li><i class="fab fa-blogger"></i><a href="https://thepagesbetweenfingers.blogspot.com/"> Books
+                  Suggestions & Reviews.</a></li>
+              <li><i class="fab fa-blogger"></i><a href="https://skinny2healthy.blogspot.in//"> Health & Fitness.</a>
+              </li>
+              <li><i class="fab fa-blogger"></i><a href="https://thepagesbetweenfingers.blogspot.com/"> Book Revies.</a>
+              </li>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -190,7 +216,10 @@ function toPDF() {
     </nav>
     <a class="btn btn-outline-primary" href="https://shashankshekharsrivastava.github.io/">Home</a>
   </div>
-  <center><div class="fb-like" data-href="https://shashankshekharsrivastava.github.io/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div></center>
+  <center>
+    <div class="fb-like" data-href="https://shashankshekharsrivastava.github.io/" data-layout="button_count"
+      data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+  </center>
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h1 class="display-4">Income Tax Calculator</h1>
     <hr>
@@ -202,19 +231,32 @@ function toPDF() {
         <div class="form-row align-items-center">
           <div class="col-auto">
             <label for="totalIncome" class="font-weight-bold">Total Income</label>
-            <input type="number" class="form-control" id="totalIncome" placeholder="Gross Income" required onkeyup="enableCalcBtn()">
+            <input type="number" class="form-control" id="totalIncome" placeholder="Gross Income" required
+              onkeyup="enableCalcBtn(), totalIncomeInWordsFn()">
+            <span id="totalIncomeInWords" class="form-text text-danger"></span>
           </div>
           <div class="col-auto">
             <label for="additionalIncomeA" class="font-weight-bold">Additional Income A</label>
-            <input type="number" class="form-control" id="additionalIncomeA" placeholder="Interest from Savings Account" required data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-html="true" data-content="If the interest earned from Savings Account <b>exceeds 10,000 Rupees</b>, the excess amount will be added to the Taxable Income.">
+            <input type="number" class="form-control" id="additionalIncomeA" placeholder="Interest from Savings Account"
+              required data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information"
+              data-html="true"
+              data-content="If the interest earned from Savings Account <b>exceeds 10,000 Rupees</b>, the excess amount will be added to the Taxable Income."
+              onkeyup="additionalIncomeAFn()">
+            <span id="additionalIncomeAInWords" class="form-text text-danger"></span>
           </div>
           <div class="col-auto">
             <label for="additionalIncomeB" class="font-weight-bold">Additional Income B</label>
-            <input type="number" class="form-control" id="additionalIncomeB" placeholder="Income from Mutual Funds/NSC" required data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-content="Earning from Mutual Funds or NSC is taxable. However, you can claim the interest earned on NSC in Section 80C.">
+            <input type="number" class="form-control" id="additionalIncomeB" placeholder="Income from Mutual Funds/NSC"
+              required data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information"
+              data-content="Earning from Mutual Funds or NSC is taxable. However, you can claim the interest earned on NSC in Section 80C."
+              onkeyup="additionalIncomeBFn()">
+            <span id="additionalIncomeBInWords" class="form-text text-danger"></span>
           </div>
           <div class="col-auto">
             <label for="additionalIncomeC" class="font-weight-bold">Additional Income C</label>
-            <input type="number" class="form-control" id="additionalIncomeC" placeholder="Any other source" onblur="netIncomeFn()">
+            <input type="number" class="form-control" id="additionalIncomeC" placeholder="Any other source"
+              onblur="netIncomeFn()" onkeyup=" additionalIncomeCFn()">
+            <span id="additionalIncomeCInWords" class="form-text text-danger"></span>
           </div>
         </div>
         <br>
@@ -229,24 +271,29 @@ function toPDF() {
         <div class="form-row align-items-center">
           <div class="col-auto">
             <label for="hra" class="font-weight-bold">HRA (House Rent Allowance)</label>
-            <input type="number" class="form-control" id="hra" placeholder="House Rent Allowance" onkeyup="netIncomeFn()" required data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-html="true" data-content="Enter your actual, exempted annual HRA here. Note
+            <input type="number" class="form-control" id="hra" placeholder="House Rent Allowance"
+              onkeyup="netIncomeFn()" required data-toggle="popover" data-trigger="focus" data-placement="top"
+              title="Important Information" data-html="true" data-content="Enter your actual, exempted annual HRA here. Note
             that HRA is fully taxable if you're <b>not</b> living in a rented accomodation.">
           </div>
           <div class="col-auto">
             <label for="conveyance" class="font-weight-bold">Conveyance Allowance</label>
-            <input type="number" class="form-control" id="conveyance" placeholder="" onkeyup="netIncomeFn()" >
+            <input type="number" class="form-control" id="conveyance" placeholder="" onkeyup="netIncomeFn()">
           </div>
           <div class="col-auto">
             <label for="conveyance" class="font-weight-bold">Standard Deduction (reintroduced last year)</label>
             <input type="number" class="form-control" id="standard-deduction" placeholder="Standard Deduction" readonly
-            value="40000" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="top" title="Important Information" data-content="Standard Deduction of <b>Rupees 40,000</b> was
-            reintroduced last year <i>in place of transport and medical allowance</i>. This amount will be subtracted from the Gross Income." >
+              value="40000" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="top"
+              title="Important Information"
+              data-content="Standard Deduction of <b>Rupees 40,000</b> was
+            reintroduced last year <i>in place of transport and medical allowance</i>. This amount will be subtracted from the Gross Income.">
           </div>
         </div>
         <br>
         <div class="form-row align-items-center">
           <div class="col-auto border">
-            <label for="totalAllowance" class="font-weight-bold font-italic">Total Allowances(Calculated Automatically)</label>
+            <label for="totalAllowance" class="font-weight-bold font-italic">Total Allowances(Calculated
+              Automatically)</label>
             <h3 id="totalAllowance"></h3>
           </div>
           <div class="col-auto border">
@@ -255,7 +302,8 @@ function toPDF() {
           </div>
         </div>
         <br>
-        <p class="lead text-primary font-weight-bold shadow p-3 mb-5 bg-white rounded">Section 80C (<i class="fas fa-rupee-sign"></i> 1,50,000 Maximum)</p>
+        <p class="lead text-primary font-weight-bold shadow p-3 mb-5 bg-white rounded">Section 80C (<i
+            class="fas fa-rupee-sign"></i> 1,50,000 Maximum)</p>
         <div class="form-row align-items-center">
           <div class="col-auto">
             <label for="pf" class="font-weight-bold">Provident Fund</label>
@@ -263,7 +311,9 @@ function toPDF() {
           </div>
           <div class="col-auto">
             <label for="lic" class="font-weight-bold">Life Insurance</label>
-            <input type="number" class="form-control" id="lic" placeholder="All life insurance policies" data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-content="Add all the life insurance policies & enter the total amount here." onkeyup="netIncomeFn()">
+            <input type="number" class="form-control" id="lic" placeholder="All life insurance policies"
+              data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information"
+              data-content="Add all the life insurance policies & enter the total amount here." onkeyup="netIncomeFn()">
           </div>
           <div class="col-auto">
             <label for="mf" class="font-weight-bold">Mutual Funds</label>
@@ -271,26 +321,36 @@ function toPDF() {
           </div>
           <div class="col-auto">
             <label for="nsc" class="font-weight-bold">Interest from NSC</label>
-            <input type="number" class="form-control" id="nsc" placeholder="Lumpsum or in parts" data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-content="If you have received the maturity amount, enter the interest for 4 or 9 years here. If your certificates haven't matured yet, enter the annual interest you have earned." onkeyup="netIncomeFn()">
+            <input type="number" class="form-control" id="nsc" placeholder="Lumpsum or in parts" data-toggle="popover"
+              data-trigger="focus" data-placement="top" title="Important Information"
+              data-content="If you have received the maturity amount, enter the interest for 4 or 9 years here. If your certificates haven't matured yet, enter the annual interest you have earned."
+              onkeyup="netIncomeFn()">
           </div>
           <div class="col-auto">
             <label for="ppf" class="font-weight-bold">PPF</label>
-            <input type="number" class="form-control" id="ppf" placeholder="Public Provident Fund" onkeyup="netIncomeFn()">
+            <input type="number" class="form-control" id="ppf" placeholder="Public Provident Fund"
+              onkeyup="netIncomeFn()">
           </div>
           <div class="col-auto">
             <label for="homeloanPrincipal" class="font-weight-bold">House Property(Principal Repayment)</label>
-            <input type="number" class="form-control" id="homeloanPrincipal" placeholder="Include any Registry amount as well" data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-content="Enter the contribution towards principal repayment towards purchasing of your new house. Ask your loan provider for more information. A total of Rupees 1,50,000 can be claimed within the overall limit of Section 80C." onkeyup="netIncomeFn()">
+            <input type="number" class="form-control" id="homeloanPrincipal"
+              placeholder="Include any Registry amount as well" data-toggle="popover" data-trigger="focus"
+              data-placement="top" title="Important Information"
+              data-content="Enter the contribution towards principal repayment towards purchasing of your new house. Ask your loan provider for more information. A total of Rupees 1,50,000 can be claimed within the overall limit of Section 80C."
+              onkeyup="netIncomeFn()">
           </div>
         </div>
         <br>
         <div class="form-row align-items-center">
           <div class="col-auto A border">
-            <label for="total80c" class="font-weight-bold font-italic">Section 80C - Total(Calculated Automatically)</label>
+            <label for="total80c" class="font-weight-bold font-italic">Section 80C - Total(Calculated
+              Automatically)</label>
             <h3 id="total80c"></h3>
           </div>
         </div>
         <br>
-        <p class="lead text-secondary font-weight-bold shadow p-3 mb-5 bg-white rounded">Section 80D (Medical Insurance)</p>
+        <p class="lead text-secondary font-weight-bold shadow p-3 mb-5 bg-white rounded">Section 80D (Medical Insurance)
+        </p>
         <div class="form-row align-items-center">
           <div class="col-auto">
             <label for="medicalSelf" class="font-weight-bold">Premium For Self, Spouse or Dependent Children</label>
@@ -304,7 +364,8 @@ function toPDF() {
         <br>
         <div class="form-row align-items-center">
           <div class="col-auto A border">
-            <label for="total80d" class="font-weight-bold font-italic">Section 80D - Total(Calculated Automatically)</label>
+            <label for="total80d" class="font-weight-bold font-italic">Section 80D - Total(Calculated
+              Automatically)</label>
             <h3 id="totalmed"></h3>
           </div>
         </div>
@@ -317,11 +378,15 @@ function toPDF() {
           </div>
         </div>
         <br>
-        <p class="lead text-dark font-weight-bold shadow p-3 mb-5 bg-white rounded">Section 80CCD (1) and (1B) - Employee Contribution to New Pension Scheme (NPS))</p>
+        <p class="lead text-dark font-weight-bold shadow p-3 mb-5 bg-white rounded">Section 80CCD (1) and (1B) -
+          Employee Contribution to New Pension Scheme (NPS))</p>
         <div class="form-row align-items-center">
           <div class="col-auto">
             <label for="nps" class="font-weight-bold">NPS Investment</label>
-            <input type="number" class="form-control" id="nps" placeholder="National Pension Scheme" data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-html="true" data-content="An additional <b>50,000 Rupees</b> can be invested under NPS & is over and above the limit of 1,50,000 Rupees allowed under Section 80C.">
+            <input type="number" class="form-control" id="nps" placeholder="National Pension Scheme"
+              data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information"
+              data-html="true"
+              data-content="An additional <b>50,000 Rupees</b> can be invested under NPS & is over and above the limit of 1,50,000 Rupees allowed under Section 80C.">
           </div>
         </div>
         <br>
@@ -329,11 +394,14 @@ function toPDF() {
         <div class="form-row align-items-center">
           <div class="col-auto">
             <label for="homeloanInterest" class="font-weight-bold">Interest Paid on Self-occupied Property</label>
-            <input type="number" class="form-control" id="homeloanInterest" placeholder="" data-toggle="popover" data-trigger="focus" data-placement="top" title="Important Information" data-content="You can claim upto Rupees 2 lakhs on your self-occupied home's loan interest. Check with your loan provider about the interest letter.">
+            <input type="number" class="form-control" id="homeloanInterest" placeholder="" data-toggle="popover"
+              data-trigger="focus" data-placement="top" title="Important Information"
+              data-content="You can claim upto Rupees 2 lakhs on your self-occupied home's loan interest. Check with your loan provider about the interest letter.">
           </div>
         </div>
         <br>
-        <button type="button" id="incometaxCalculateBtn" class="btn btn-danger" onclick="calc()" disabled>Calculate</button>
+        <button type="button" id="incometaxCalculateBtn" class="btn btn-danger" onclick="calc()"
+          disabled>Calculate</button>
       </form>
     </div>
     <br>
@@ -351,96 +419,110 @@ function toPDF() {
         <h3 class="card-text text-primary" id="cess"></h3>
         <h2 class="card-text text-danger animated infinite swing delay-2s" id="totalTax"></h2>
         <br>
-        <a href="https://shashankshekharsrivastava.github.io/" class="btn btn-primary" onclick="FB.AppEvents.logEvent('buttonClicked')">Home</a>
-        <button type="button" id="downloadPDFBtn" class="btn btn-dark" onclick="toPDF(); FB.AppEvents.logEvent('buttonClicked')" disabled>Download</button>
+        <a href="https://shashankshekharsrivastava.github.io/" class="btn btn-primary"
+          onclick="FB.AppEvents.logEvent('buttonClicked')">Home</a>
+        <button type="button" id="downloadPDFBtn" class="btn btn-dark"
+          onclick="toPDF(); FB.AppEvents.logEvent('buttonClicked')" disabled>Download</button>
         <div class="btn-group" role="group">
-          <button id="btnGroupDrop1" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button id="btnGroupDrop1" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
             Charts
           </button>
           <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-            <button class="dropdown-item" id="incomeTaxBreakup" data-toggle="modal" data-target="#breakupModal" type="submit" onclick="drawChart(); FB.AppEvents.logEvent('buttonClicked')">Income Breakup</button>
-            <button class="dropdown-item" id="SavingsBreakup" data-toggle="modal" data-target="#breakupSavingsModal" type="submit" onclick="drawSavingsChart(); FB.AppEvents.logEvent('buttonClicked')">Savings Breakup</button>
-            <button class="dropdown-item" id="InvestmentsBreakup" data-toggle="modal" data-target="#breakupInvestmentsModal" type="submit" onclick="drawInvestmentChart(); FB.AppEvents.logEvent('buttonClicked')">Investments Breakup</button></div>
-          </div>
+            <button class="dropdown-item" id="incomeTaxBreakup" data-toggle="modal" data-target="#breakupModal"
+              type="submit" onclick="drawChart(); FB.AppEvents.logEvent('buttonClicked')">Income Breakup</button>
+            <button class="dropdown-item" id="SavingsBreakup" data-toggle="modal" data-target="#breakupSavingsModal"
+              type="submit" onclick="drawSavingsChart(); FB.AppEvents.logEvent('buttonClicked')">Savings
+              Breakup</button>
+            <button class="dropdown-item" id="InvestmentsBreakup" data-toggle="modal"
+              data-target="#breakupInvestmentsModal" type="submit"
+              onclick="drawInvestmentChart(); FB.AppEvents.logEvent('buttonClicked')">Investments Breakup</button></div>
         </div>
       </div>
+    </div>
 
-      <!--modal-income-breakup-->
-      <div class="modal fade bd-example-modal-lg" id="breakupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Income Breakup</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <h3 class="text-info"><u>Chart showing the breakup of your income.</u></h3>
-              <canvas id="piechart"></canvas>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
+    <!--modal-income-breakup-->
+    <div class="modal fade bd-example-modal-lg" id="breakupModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Income Breakup</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h3 class="text-info"><u>Chart showing the breakup of your income.</u></h3>
+            <canvas id="piechart"></canvas>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
-      <!--modal-savings-breakup-->
-      <div class="modal fade bd-example-modal-lg" id="breakupSavingsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Savings/Deductions Breakup</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <h3 class="text-info"><u>Chart showing the breakup of your Savings/Deductions under Section 80C.</u></h3>
-              <canvas id="piechartSavings"></canvas>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
+    </div>
+    </div>
+    <!--modal-savings-breakup-->
+    <div class="modal fade bd-example-modal-lg" id="breakupSavingsModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Savings/Deductions Breakup</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h3 class="text-info"><u>Chart showing the breakup of your Savings/Deductions under Section 80C.</u></h3>
+            <canvas id="piechartSavings"></canvas>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
-      <!--modal-investments-breakup-->
-      <div class="modal fade bd-example-modal-lg" id="breakupInvestmentsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Investments Breakup</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <h3 class="text-info"><u>Chart showing the breakup of all your Investments.</u></h3>
-              <canvas id="barchartInvestments"></canvas>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
+    </div>
+    </div>
+    <!--modal-investments-breakup-->
+    <div class="modal fade bd-example-modal-lg" id="breakupInvestmentsModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Investments Breakup</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h3 class="text-info"><u>Chart showing the breakup of all your Investments.</u></h3>
+            <canvas id="barchartInvestments"></canvas>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
+    </div>
+    </div>
 
-      <hr>
-      <p class="text-monospace">Support this site. Please share with your friends.</p>
-      <div class="fb-save" data-uri="https://shashankshekharsrivastava.github.io/" data-size="large"></div>
-      <div class="ssk-group ssk-count">
-        <a href="" class="ssk ssk-facebook ssk-lg" data-url="https://shashankshekharsrivastava.github.io/" data-text="EMI & Income Tax Calculator by Shashank Srivastava. No log-in required."></a>
-        <a href="" class="ssk ssk-twitter ssk-lg" data-via="shashanksriva"></a>
-        <a href="" class="ssk ssk-google-plus ssk-lg" data-url="https://shashankshekharsrivastava.github.io/"></a>
-        <a href="" class="ssk ssk-linkedin ssk-lg" data-url="https://shashankshekharsrivastava.github.io/" data-text="EMI & Income Tax Calculator by Shashank Srivastava. No log-in required."></a>
-        <a href="whatsapp://send?text=Calculate%20EMI%20and%20Income%20Tax%20with%20ease.%20No%20sign-in/sign-up required.%20No%20data%20collected.%20100%%20private.%20Visit%20https://shashankshekharsrivastava.github.io" class="ssk ssk-whatsapp ssk-lg"></a>
-      </div>
-    </center>
-    <script type="text/javascript">
+    <hr>
+    <p class="text-monospace">Support this site. Please share with your friends.</p>
+    <div class="fb-save" data-uri="https://shashankshekharsrivastava.github.io/" data-size="large"></div>
+    <div class="ssk-group ssk-count">
+      <a href="" class="ssk ssk-facebook ssk-lg" data-url="https://shashankshekharsrivastava.github.io/"
+        data-text="EMI & Income Tax Calculator by Shashank Srivastava. No log-in required."></a>
+      <a href="" class="ssk ssk-twitter ssk-lg" data-via="shashanksriva"></a>
+      <a href="" class="ssk ssk-google-plus ssk-lg" data-url="https://shashankshekharsrivastava.github.io/"></a>
+      <a href="" class="ssk ssk-linkedin ssk-lg" data-url="https://shashankshekharsrivastava.github.io/"
+        data-text="EMI & Income Tax Calculator by Shashank Srivastava. No log-in required."></a>
+      <a href="whatsapp://send?text=Calculate%20EMI%20and%20Income%20Tax%20with%20ease.%20No%20sign-in/sign-up required.%20No%20data%20collected.%20100%%20private.%20Visit%20https://shashankshekharsrivastava.github.io"
+        class="ssk ssk-whatsapp ssk-lg"></a>
+    </div>
+  </center>
+  <script type="text/javascript">
     SocialShareKit.init({ forceInit: true });
     $(function () {
       $('[data-toggle="popover"]').popover()
@@ -450,34 +532,42 @@ function toPDF() {
         trigger: 'focus'
       })
     })
-    </script>
-    <center>
-      <div id="disqus_thread" class="container"></div>
-    </center>
-      <script>
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://https-shashankshekharsrivastava-github-io.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <hr>
-    <center>
-      <div class="footer">
-        <h3><span class="badge badge-primary fa-spin"><></span> with <span class="badge badge-danger"><i class="fas fa-heart fa-spin"></i></span> by <span class="badge badge-info">Shashank Srivastava</span></h3>
-        <p class="text-secondary">This site is for the reference only. It can't be used as a legal proof. Always check with a CA when in doubt.</p>
-        <p class="text-info">Connect with me on social media. I would love to see you there!</p>
-        <div>
-          <a href="https://twitter.com/shashanksriva" class="ssk ssk-text ssk-twitter" data-ssk-ready="true">Twitter</a>
-          <a href="https://www.facebook.com/shazmix" class="ssk ssk-text ssk-facebook" data-ssk-ready="true">Facebook</a>
-          <a href="https://www.youtube.com/channel/UC_ZC2oiiJUjdffCqIZ5lLKw" class="ssk ssk-text ssk-youtube" data-ssk-ready="true">YouTube</a>
-          <a href="https://www.instagram.com/shashanksriva/" class="ssk ssk-text ssk-instagram" data-ssk-ready="true">Instagram</a>
-        </div>
+  </script>
+  <center>
+    <div id="disqus_thread" class="container"></div>
+  </center>
+  <script>
+      (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-shashankshekharsrivastava-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+      Disqus.</a></noscript>
+  <hr>
+  <center>
+    <div class="footer">
+      <h3><span class="badge badge-primary fa-spin">
+          <>
+        </span> with <span class="badge badge-danger"><i class="fas fa-heart fa-spin"></i></span> by <span
+          class="badge badge-info">Shashank Srivastava</span></h3>
+      <p class="text-secondary">This site is for the reference only. It can't be used as a legal proof. Always check
+        with a CA when in doubt.</p>
+      <p class="text-info">Connect with me on social media. I would love to see you there!</p>
+      <div>
+        <a href="https://twitter.com/shashanksriva" class="ssk ssk-text ssk-twitter" data-ssk-ready="true">Twitter</a>
+        <a href="https://www.facebook.com/shazmix" class="ssk ssk-text ssk-facebook" data-ssk-ready="true">Facebook</a>
+        <a href="https://www.youtube.com/channel/UC_ZC2oiiJUjdffCqIZ5lLKw" class="ssk ssk-text ssk-youtube"
+          data-ssk-ready="true">YouTube</a>
+        <a href="https://www.instagram.com/shashanksriva/" class="ssk ssk-text ssk-instagram"
+          data-ssk-ready="true">Instagram</a>
       </div>
-    </center>
-    <div class="fb-quote"></div>
-    <script id="dsq-count-scr" src="//https-shashankshekharsrivastava-github-io.disqus.com/count.js" async></script>
-  </body>
-  </html>
+    </div>
+  </center>
+  <div class="fb-quote"></div>
+  <script id="dsq-count-scr" src="//https-shashankshekharsrivastava-github-io.disqus.com/count.js" async></script>
+</body>
+
+</html>
