@@ -1,11 +1,11 @@
 function enableCalcBtn() {
   if (Number(document.getElementById("totalIncome").value.length > 0)) {
-    document.getElementById("incometaxCalculateBtn").disabled=false;
-    document.getElementById("downloadPDFBtn").disabled=false;
+    document.getElementById("incometaxCalculateBtn").disabled = false;
+    document.getElementById("downloadPDFBtn").disabled = false;
   }
   else {
-    document.getElementById("incometaxCalculateBtn").disabled=true;
-    document.getElementById("downloadPDFBtn").disabled=true;
+    document.getElementById("incometaxCalculateBtn").disabled = true;
+    document.getElementById("downloadPDFBtn").disabled = true;
   }
 }
 
@@ -55,30 +55,30 @@ function calc() {
     return false;
   } else if (taxableIncome >= 250000 && taxableIncome <= 500000) {
     var slab = 5;
-    var netTaxpayable = ( taxableIncome - 250000);
-    var actualTax = (( 5 * netTaxpayable ) / 100);
+    var netTaxpayable = (taxableIncome - 250000);
+    var actualTax = ((5 * netTaxpayable) / 100);
   } else if (taxableIncome >= 500000 && taxableIncome <= 1000000) {
     var slab = 20;
     var netTaxpayable = (taxableIncome - 500000);
-    var actualTax = (20 * netTaxpayable)/ 100 + 12500;
+    var actualTax = (20 * netTaxpayable) / 100 + 12500;
   }
-  else if (taxableIncome > 1000000){
+  else if (taxableIncome > 1000000) {
     slab = 30;
-    netTaxpayable = ( taxableIncome - 500000);
-    actualTax = (( 30 * taxableIncome ) / 100 ) + 100000 + 12500;
+    netTaxpayable = (taxableIncome - 500000);
+    actualTax = ((30 * taxableIncome) / 100) + 100000 + 12500;
   }
-  var cess = (3 * actualTax)/100;
+  var cess = (3 * actualTax) / 100;
   var totalTax = cess + actualTax;
   var Rupees = 'Rs.';
-  document.getElementById("actualTax").innerHTML = "Income Tax : "+ actualTax.toFixed(0) + " " + Rupees;
-  document.getElementById("cess").innerHTML = "Health and Education Cess : "+ cess.toFixed(0) + " " + Rupees;
-  document.getElementById("totalTax").innerHTML = "Total Tax : "+ totalTax.toFixed(0) + " " + Rupees;
-  document.getElementById("grossIncomeFinal").innerHTML = "Total Gross Income : "+ grossIncome + " " + Rupees;
-  document.getElementById("netIncomeFinal").innerHTML = "Net Income : "+ netIncome + " " + Rupees;
-  document.getElementById("totalDeductions").innerHTML = "Total Deductions : "+ deductions + " " + Rupees;
-  document.getElementById("incometax").innerHTML = "Taxable Income : "+ taxableIncome  + " " + Rupees;
-  document.getElementById("slab").innerHTML = "Income Tax Slab(%) : "+ slab;
-  document.getElementById("savingsAccountInterest").innerHTML = "Taxable Savings Account Interest(if any) : "+ additionalIncomeA + " " + Rupees;
+  document.getElementById("actualTax").innerHTML = "Income Tax : " + actualTax.toFixed(0) + " " + Rupees;
+  document.getElementById("cess").innerHTML = "Health and Education Cess : " + cess.toFixed(0) + " " + Rupees;
+  document.getElementById("totalTax").innerHTML = "Total Tax : " + totalTax.toFixed(0) + " " + Rupees;
+  document.getElementById("grossIncomeFinal").innerHTML = "Total Gross Income : " + grossIncome + " " + Rupees;
+  document.getElementById("netIncomeFinal").innerHTML = "Net Income : " + netIncome + " " + Rupees;
+  document.getElementById("totalDeductions").innerHTML = "Total Deductions : " + deductions + " " + Rupees;
+  document.getElementById("incometax").innerHTML = "Taxable Income : " + taxableIncome + " " + Rupees;
+  document.getElementById("slab").innerHTML = "Income Tax Slab(%) : " + slab;
+  document.getElementById("savingsAccountInterest").innerHTML = "Taxable Savings Account Interest(if any) : " + additionalIncomeA + " " + Rupees;
 }
 
 function netIncomeFn() {
@@ -110,7 +110,7 @@ function netIncomeFn() {
   document.getElementById("totalmed").innerHTML = rupeeFAIcon + " " + totalMedicalInsurancePremium;
 }
 
-google.charts.load('current', {'packages':['corechart']});
+google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 google.charts.setOnLoadCallback(drawSavingsChart);
 google.charts.setOnLoadCallback(drawInvestmentChart);
@@ -214,4 +214,24 @@ function drawInvestmentChart() {
       }
     }
   });
+}
+
+function totalIncomeInWordsFn() {
+  var totalIncomeInWords = numberToWords.toWords(Number(document.getElementById("totalIncome").value));
+  document.getElementById("totalIncomeInWords").innerHTML = totalIncomeInWords;
+}
+
+function additionalIncomeAFn() {
+  var totalIncomeInWords = numberToWords.toWords(Number(document.getElementById("additionalIncomeA").value));
+  document.getElementById("additionalIncomeAInWords").innerHTML = totalIncomeInWords;
+}
+
+function additionalIncomeBFn() {
+  var totalIncomeInWords = numberToWords.toWords(Number(document.getElementById("additionalIncomeB").value));
+  document.getElementById("additionalIncomeBInWords").innerHTML = totalIncomeInWords;
+}
+
+function additionalIncomeCFn() {
+  var totalIncomeInWords = numberToWords.toWords(Number(document.getElementById("additionalIncomeC").value));
+  document.getElementById("additionalIncomeCInWords").innerHTML = totalIncomeInWords;
 }
