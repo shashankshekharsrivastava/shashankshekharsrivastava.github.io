@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: emicalc-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+  - host: shashank.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: emicalc
+          servicePort: 80
+      - path: /incometax.html
+        backend:
+          serviceName: incometax
+          servicePort: 80
