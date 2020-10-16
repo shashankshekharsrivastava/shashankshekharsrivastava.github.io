@@ -1,0 +1,17 @@
+{
+  "name": "EMI & Income Tax Calculator by Shashank Srivastava",
+  "short_name": "EMI/IT Calculator",
+  "theme_color": "#ffcbe4",
+  "background_color": "#fa99ca",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "https://shashankshekharsrivastava.github.io/",
+  "description": "My Music Stats - Visualise your Last.fm data, analyse your music habits. See how unique your music taste is.",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "https://shashankshekharsrivastava.github.io/avatar.png",
+      "sizes": "512x512"
+    }
+  ]
+}
