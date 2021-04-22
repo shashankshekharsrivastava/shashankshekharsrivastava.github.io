@@ -65,7 +65,7 @@ function calc() {
   else if (taxableIncome > 1000000) {
     slab = 30;
     netTaxpayable = (taxableIncome - 500000);
-    actualTax = ((30 * taxableIncome) / 100) + 100000 + 12500;
+    actualTax = ((30 * netTaxpayable) / 100) + 100000 + 12500;
   }
   var cess = (3 * actualTax) / 100;
   var totalTax = cess + actualTax;
